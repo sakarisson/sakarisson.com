@@ -2,7 +2,11 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 
-const Header = ({ siteTitle }) => (
+type Props = {
+  siteTitle: string
+}
+
+const Header: React.FC<Props> = ({ siteTitle }) => (
   <header
     style={{
       background: `rebeccapurple`,
