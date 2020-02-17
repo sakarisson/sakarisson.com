@@ -17,19 +17,9 @@ type Props = {
 }
 
 const Layout: React.FC<Props> = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Header title="Kristian Sakarisson" subtitle="Software engineer" />
       <div
         style={{
           margin: `0 auto`,
