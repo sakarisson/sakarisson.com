@@ -1,6 +1,6 @@
-import { Link } from "gatsby"
 import React from "react"
 import styled from "styled-components"
+import * as Typography from "./Typography"
 
 const Head = styled.header`
   display: flex;
@@ -10,17 +10,13 @@ const Head = styled.header`
 `
 
 const Container = styled.div``
-const Title = styled.h1``
-const Subtitle = styled.p``
 
 const Header = () => (
   <Head>
-    <Link to="/">
-      <Container>
-        <Title>Kristian Sakarisson</Title>
-        <Subtitle>software engineer</Subtitle>
-      </Container>
-    </Link>
+    <Container>
+      <Typography.Title>Kristian Sakarisson</Typography.Title>
+      <Typography.Paragraph>software engineer</Typography.Paragraph>
+    </Container>
   </Head>
 )
 
