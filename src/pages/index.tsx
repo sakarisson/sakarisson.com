@@ -23,7 +23,7 @@ const IndexPage = () => (
     </Paragraph>
     <Paragraph>
       I am currently working at <Link href="https://wolt.com/">Wolt</Link> where
-      I develop frontend solutions using modern JavaScript.
+      I develop frontend solutions using modern TypeScript.
     </Paragraph>
     <Paragraph>
       I am a huge fan of React and its ecosystem and I like to explore and learn
