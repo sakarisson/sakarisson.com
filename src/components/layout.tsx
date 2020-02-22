@@ -2,6 +2,7 @@ import React from "react"
 import styled, { createGlobalStyle } from "styled-components"
 
 import Header from "./header"
+import SEO from "./seo"
 
 const FONT_FAMILY =
   '"Gill Sans", "Gill Sans MT", "Calibri", "Lato", "sans-serif"'
@@ -35,6 +36,7 @@ type Props = {
 const Layout: React.FC<Props> = ({ children }) => {
   return (
     <Root>
+      <SEO title="Sakarisson.com" />
       <Content>
         <GlobalStyle />
         <Header />
