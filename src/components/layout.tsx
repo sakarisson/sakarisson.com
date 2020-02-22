@@ -14,9 +14,14 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const Root = styled.div`
+  padding: 16px;
   display: grid;
   grid-template-columns: 1fr 40em 1fr;
   grid-template-areas: ". content .";
+
+  @media only screen and (max-width: 42em) {
+    grid-template-columns: 0 100% 0;
+  }
 `
 
 const Content = styled.div`
