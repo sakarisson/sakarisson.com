@@ -3,6 +3,13 @@ import styled, { createGlobalStyle } from "styled-components"
 
 import Header from "./header"
 import SEO from "./seo"
+import { Paragraph } from "./Typography"
+import { Link } from "../Styles"
+
+enum GridArea {
+  CONTENT = "CONTENT",
+  FOOTER = "FOOTER",
+}
 
 const FONT_FAMILY =
   '"Gill Sans", "Gill Sans MT", "Calibri", "Lato", "sans-serif"'
@@ -16,9 +23,17 @@ const GlobalStyle = createGlobalStyle`
 
 const Root = styled.div`
   padding: 16px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   display: grid;
   grid-template-columns: 1fr 40em 1fr;
-  grid-template-areas: ". content .";
+  grid-template-rows: auto 5em;
+  grid-template-areas:
+    ". ${GridArea.CONTENT} ."
+    ". ${GridArea.FOOTER} .";
 
   @media only screen and (max-width: 42em) {
     grid-template-columns: 0 100% 0;
@@ -26,7 +41,13 @@ const Root = styled.div`
 `
 
 const Content = styled.div`
-  grid-area: content;
+  grid-area: ${GridArea.CONTENT};
+  padding-bottom: 3em;
+`
+
+const Footer = styled.footer`
+  grid-area: ${GridArea.FOOTER};
+  text-align: center;
 `
 
 type Props = {
@@ -42,6 +63,15 @@ const Layout: React.FC<Props> = ({ children }) => {
         <Header />
         <main>{children}</main>
       </Content>
+      <Footer>
+        <Paragraph>
+          © {new Date().getFullYear()}, Built with
+          {` `}
+          <Link href="https://www.gatsbyjs.org">Gatsby</Link>
+          {`, hosted on `}
+          <Link href="https://www.now.sh">now</Link>
+        </Paragraph>
+      </Footer>
     </Root>
   )
 }

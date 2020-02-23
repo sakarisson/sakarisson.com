@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
+import * as S from "../Styles"
 import Layout from "../components/layout"
 import * as Typography from "../components/Typography"
 
@@ -10,10 +11,6 @@ const Heading = styled(Typography.Heading)`
 
 const Paragraph = styled(Typography.Paragraph)``
 
-const Link = styled.a`
-  color: rgb(0, 102, 51);
-`
-
 const IndexPage = () => (
   <Layout>
     <Heading>About me</Heading>
@@ -22,8 +19,8 @@ const IndexPage = () => (
       Finland.
     </Paragraph>
     <Paragraph>
-      I am currently working at <Link href="https://wolt.com/">Wolt</Link> where
-      I develop frontend solutions using modern TypeScript.
+      I am currently working at <S.Link href="https://wolt.com/">Wolt</S.Link>{" "}
+      where I develop frontend solutions using modern TypeScript.
     </Paragraph>
     <Paragraph>
       I am a huge fan of React and its ecosystem and I like to explore and learn
@@ -39,18 +36,18 @@ const IndexPage = () => (
     <Heading>Internet</Heading>
     <Paragraph>
       If you are interested in some of my code, feel free to check out my{" "}
-      <Link href="https://github.com/Sakarisson/">GitHub profile</Link>.
+      <S.Link href="https://github.com/Sakarisson/">GitHub profile</S.Link>.
     </Paragraph>
     <Paragraph>
       To see a wall of basically nothing but retweets, go ahead and follow me on{" "}
-      <Link href="https://twitter.com/ksakarisson">Twitter</Link>.
+      <S.Link href="https://twitter.com/ksakarisson">Twitter</S.Link>.
     </Paragraph>
     <Paragraph>
       If you would like to connect professionally, connect with me on{" "}
-      <Link href="https://www.linkedin.com/in/kristiansakarisson/">
+      <S.Link href="https://www.linkedin.com/in/kristiansakarisson/">
         LinkedIn
-      </Link>{" "}
-      or just <Link href="mailto: kristian@sakarisson.com">email me</Link>.
+      </S.Link>{" "}
+      or just <S.Link href="mailto: kristian@sakarisson.com">email me</S.Link>.
     </Paragraph>
   </Layout>
 )
