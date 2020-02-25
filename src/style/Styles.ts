@@ -1,5 +1,6 @@
 import styled from "styled-components"
+import Color from "./Color"
 
 export const Link = styled.a`
-  color: rgb(0, 102, 51);
+  color: ${Color.TEXT_HIGHLIGHT};
 `

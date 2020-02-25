@@ -4,15 +4,15 @@ import styled, { createGlobalStyle } from "styled-components"
 import Header from "./header"
 import SEO from "./seo"
 import { Paragraph } from "./Typography"
-import { Link } from "../Styles"
+import { Link } from "../style/Styles"
+import Color from "../style/Color"
 
 enum GridArea {
   CONTENT = "CONTENT",
   FOOTER = "FOOTER",
 }
 
-const FONT_FAMILY =
-  '"Gill Sans", "Gill Sans MT", "Calibri", "Lato", "sans-serif"'
+const FONT_FAMILY = '"Menlo", "Meslo LG", monospace;'
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -22,6 +22,7 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const Root = styled.div`
+  background-color: ${Color.BACKGROUND};
   padding: 16px;
   position: absolute;
   top: 0;
@@ -29,7 +30,7 @@ const Root = styled.div`
   bottom: 0;
   right: 0;
   display: grid;
-  grid-template-columns: 1fr 40em 1fr;
+  grid-template-columns: 1fr 45em 1fr;
   grid-template-rows: auto 5em;
   grid-template-areas:
     ". ${GridArea.CONTENT} ."

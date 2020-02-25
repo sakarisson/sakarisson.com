@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-import * as S from "../Styles"
+import * as S from "../style/Styles"
 import Layout from "../components/layout"
 import * as Typography from "../components/Typography"
 
