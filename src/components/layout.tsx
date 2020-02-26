@@ -19,10 +19,13 @@ const GlobalStyle = createGlobalStyle`
     margin: 0px;
     font-family: ${FONT_FAMILY}
   }
+  body, html {
+    height: 100%;
+    background-color: ${Color.BACKGROUND};
+  }
 `
 
 const Root = styled.div`
-  background-color: ${Color.BACKGROUND};
   padding: 16px;
   position: absolute;
   top: 0;
