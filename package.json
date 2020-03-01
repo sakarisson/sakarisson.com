@@ -24,7 +24,8 @@
   "devDependencies": {
     "@types/react-helmet": "^5.0.15",
     "@types/styled-components": "^4.4.3",
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "typescript": "^3.8.3"
   },
   "keywords": [
     "gatsby"
@@ -37,7 +38,8 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "tsc": "tsc --noEmit --skipLibCheck"
   },
   "repository": {
     "type": "git",
