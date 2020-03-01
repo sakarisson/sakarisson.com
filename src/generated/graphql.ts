@@ -2263,37 +2263,6 @@ export type StringQueryOperatorInput = {
   glob?: Maybe<Scalars['String']>,
 };
 
-export type Unnamed_1_QueryVariables = {};
-
-
-export type Unnamed_1_Query = (
-  { __typename?: 'Query' }
-  & { placeholderImage: Maybe<(
-    { __typename?: 'File' }
-    & { childImageSharp: Maybe<(
-      { __typename?: 'ImageSharp' }
-      & { fluid: Maybe<(
-        { __typename?: 'ImageSharpFluid' }
-        & GatsbyImageSharpFluidFragment
-      )> }
-    )> }
-  )> }
-);
-
-export type SiteMetaQueryVariables = {};
-
-
-export type SiteMetaQuery = (
-  { __typename?: 'Query' }
-  & { site: Maybe<(
-    { __typename?: 'Site' }
-    & { siteMetadata: Maybe<(
-      { __typename?: 'SiteSiteMetadata' }
-      & Pick<SiteSiteMetadata, 'title'>
-    )> }
-  )> }
-);
-
 export type GatsbyImageSharpFixedFragment = (
   { __typename?: 'ImageSharpFixed' }
   & Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>
@@ -2412,4 +2381,49 @@ export type GatsbyImageSharpSizes_NoBase64Fragment = (
 export type GatsbyImageSharpSizes_WithWebp_NoBase64Fragment = (
   { __typename?: 'ImageSharpSizes' }
   & Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>
+);
+
+export type PagesQueryQueryVariables = {};
+
+
+export type PagesQueryQuery = (
+  { __typename?: 'Query' }
+  & { allSitePage: (
+    { __typename?: 'SitePageConnection' }
+    & { nodes: Array<(
+      { __typename?: 'SitePage' }
+      & Pick<SitePage, 'path'>
+    )> }
+  ) }
+);
+
+export type Unnamed_1_QueryVariables = {};
+
+
+export type Unnamed_1_Query = (
+  { __typename?: 'Query' }
+  & { placeholderImage: Maybe<(
+    { __typename?: 'File' }
+    & { childImageSharp: Maybe<(
+      { __typename?: 'ImageSharp' }
+      & { fluid: Maybe<(
+        { __typename?: 'ImageSharpFluid' }
+        & GatsbyImageSharpFluidFragment
+      )> }
+    )> }
+  )> }
+);
+
+export type SiteMetaQueryVariables = {};
+
+
+export type SiteMetaQuery = (
+  { __typename?: 'Query' }
+  & { site: Maybe<(
+    { __typename?: 'Site' }
+    & { siteMetadata: Maybe<(
+      { __typename?: 'SiteSiteMetadata' }
+      & Pick<SiteSiteMetadata, 'title'>
+    )> }
+  )> }
 );
