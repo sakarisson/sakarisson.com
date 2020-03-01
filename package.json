@@ -22,10 +22,15 @@
     "styled-components": "^5.0.1"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^1.12.2",
+    "@graphql-codegen/introspection": "1.12.2",
+    "@graphql-codegen/typescript": "1.12.2",
+    "@graphql-codegen/typescript-operations": "1.12.2",
     "@types/react-helmet": "^5.0.15",
     "@types/styled-components": "^4.4.3",
     "prettier": "^1.19.1",
-    "typescript": "^3.8.3"
+    "typescript": "^3.8.3",
+    "@graphql-codegen/typescript-graphql-files-modules": "1.12.2"
   },
   "keywords": [
     "gatsby"
@@ -39,7 +44,8 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "tsc": "tsc --noEmit --skipLibCheck"
+    "tsc": "tsc --noEmit --skipLibCheck",
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "repository": {
     "type": "git",

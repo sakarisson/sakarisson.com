@@ -1,11 +1,13 @@
 import React from "react"
 import styled, { createGlobalStyle } from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import SEO from "./seo"
 import { Paragraph } from "./Typography"
 import { Link } from "../style/Styles"
 import Color from "../style/Color"
+import { SiteSiteMetadata } from "../generated/graphql"
 
 enum GridArea {
   CONTENT = "CONTENT",
@@ -58,10 +60,27 @@ type Props = {
   children: React.ReactNode
 }
 
+type QueryData = {
+  site: {
+    siteMetadata: SiteSiteMetadata
+  }
+}
+
+const query = graphql`
+  query SiteMeta {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`
+
 const Layout: React.FC<Props> = ({ children }) => {
+  const data = useStaticQuery<QueryData>(query)
   return (
     <Root>
-      <SEO title="Sakarisson.com" />
+      <SEO title={data.site.siteMetadata.title ?? "Sakarisson.com"} />
       <Content>
         <GlobalStyle />
         <Header />
