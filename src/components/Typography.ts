@@ -12,7 +12,14 @@ export const Paragraph = styled.p`
   line-height: 24px;
 `
 
+export const Small = styled.p`
+  color: ${Color.TEXT_PRIMARY};
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+`
+
 export const Heading = styled.h2`
   color: ${Color.TEXT_HIGHLIGHT};
-  font-weight: 300;
+  font-weight: bold;
 `
