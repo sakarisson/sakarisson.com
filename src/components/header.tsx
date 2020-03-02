@@ -15,7 +15,7 @@ const Header = () => (
   <Head>
     <Container>
       <Typography.Title>Kristian Sakarisson</Typography.Title>
-      <Typography.Paragraph>software engineer</Typography.Paragraph>
+      <Typography.Body>software engineer</Typography.Body>
     </Container>
   </Head>
 )

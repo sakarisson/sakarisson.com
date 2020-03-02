@@ -5,7 +5,7 @@ export const Title = styled.h1`
   color: ${Color.TEXT_HIGHLIGHT};
 `
 
-export const Paragraph = styled.p`
+export const Body = styled.p`
   color: ${Color.TEXT_PRIMARY};
   font-size: 14px;
   font-weight: 400;
