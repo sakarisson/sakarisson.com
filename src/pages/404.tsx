@@ -1,11 +1,23 @@
 import React from "react"
+import styled from "styled-components"
 
 import Layout from "../components/layout"
+import * as Typography from "../components/Typography"
+
+const Heading = styled(Typography.Heading).attrs(() => ({ hasMargin: true }))``
+const { Body } = Typography
+
+const Blame = styled.span`
+  color: red;
+`
 
 const NotFoundPage = () => (
   <Layout>
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+    <Heading>NOT FOUND</Heading>
+    <Body>
+      You just hit a route that doesn't exist. This is your fault.{" "}
+      <Blame>Stop it.</Blame>
+    </Body>
   </Layout>
 )
 

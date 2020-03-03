@@ -5,9 +5,7 @@ import * as S from "../style/Styles"
 import Layout from "../components/layout"
 import * as Typography from "../components/Typography"
 
-const Heading = styled(Typography.Heading)`
-  margin: 24px 0px 12px;
-`
+const Heading = styled(Typography.Heading).attrs(() => ({ hasMargin: true }))``
 
 const Body = styled(Typography.Body)``
 

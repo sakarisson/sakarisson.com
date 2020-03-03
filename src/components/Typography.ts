@@ -19,7 +19,8 @@ export const Small = styled.p`
   line-height: 20px;
 `
 
-export const Heading = styled.h2`
+export const Heading = styled.h2<{ hasMargin?: boolean }>`
   color: ${Color.TEXT_HIGHLIGHT};
+  margin: ${({ hasMargin }) => (hasMargin ? "24px 0px 12px" : "auto")};
   font-weight: bold;
 `
