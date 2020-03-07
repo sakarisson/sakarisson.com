@@ -4,8 +4,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import SEO from "./seo"
-import { Small } from "./Typography"
-import { Link } from "../style/Styles"
+import * as Typography from "./Typography"
 import Color from "../style/Color"
 import { SiteSiteMetadata } from "../generated/graphql"
 
@@ -87,13 +86,15 @@ const Layout: React.FC<Props> = ({ children }) => {
         <main>{children}</main>
       </Content>
       <Footer>
-        <Small>
+        <Typography.Small>
           © {new Date().getFullYear()}, Built with
           {` `}
-          <Link href="https://www.gatsbyjs.org">Gatsby</Link>
+          <Typography.Link href="https://www.gatsbyjs.org">
+            Gatsby
+          </Typography.Link>
           {`, hosted on `}
-          <Link href="https://www.now.sh">now</Link>
-        </Small>
+          <Typography.Link href="https://www.now.sh">now</Typography.Link>
+        </Typography.Small>
       </Footer>
     </Root>
   )

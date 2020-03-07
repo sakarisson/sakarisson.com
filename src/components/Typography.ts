@@ -24,3 +24,6 @@ export const Heading = styled.h2<{ hasMargin?: boolean }>`
   margin: ${({ hasMargin }) => (hasMargin ? "24px 0px 12px" : "auto")};
   font-weight: bold;
 `
+export const Link = styled.a`
+  color: ${Color.TEXT_HIGHLIGHT};
+`
