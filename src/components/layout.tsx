@@ -89,11 +89,13 @@ const Layout: React.FC<Props> = ({ children }) => {
         <Typography.Small>
           © {new Date().getFullYear()}, Built with
           {` `}
-          <Typography.Link href="https://www.gatsbyjs.org">
+          <Typography.ExternalLink href="https://www.gatsbyjs.org">
             Gatsby
-          </Typography.Link>
+          </Typography.ExternalLink>
           {`, hosted on `}
-          <Typography.Link href="https://www.now.sh">now</Typography.Link>
+          <Typography.ExternalLink href="https://www.now.sh">
+            now
+          </Typography.ExternalLink>
         </Typography.Small>
       </Footer>
     </Root>

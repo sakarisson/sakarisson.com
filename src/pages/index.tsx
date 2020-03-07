@@ -17,8 +17,10 @@ const IndexPage = () => (
     </Body>
     <Body>
       I am currently working at{" "}
-      <Typography.Link href="https://wolt.com/">Wolt</Typography.Link> where I
-      develop frontend solutions using modern TypeScript.
+      <Typography.ExternalLink href="https://wolt.com/">
+        Wolt
+      </Typography.ExternalLink>{" "}
+      where I develop frontend solutions using modern TypeScript.
     </Body>
     <Body>
       I am a huge fan of React and its ecosystem and I like to explore and learn
@@ -34,27 +36,27 @@ const IndexPage = () => (
     <Heading>Internet</Heading>
     <Body>
       If you are interested in some of my code, feel free to check out my{" "}
-      <Typography.Link href="https://github.com/Sakarisson/">
+      <Typography.ExternalLink href="https://github.com/Sakarisson/">
         GitHub profile
-      </Typography.Link>
+      </Typography.ExternalLink>
       .
     </Body>
     <Body>
       To see a wall of basically nothing but retweets, go ahead and follow me on{" "}
-      <Typography.Link href="https://twitter.com/ksakarisson">
+      <Typography.ExternalLink href="https://twitter.com/ksakarisson">
         Twitter
-      </Typography.Link>
+      </Typography.ExternalLink>
       .
     </Body>
     <Body>
       If you would like to connect professionally, connect with me on{" "}
-      <Typography.Link href="https://www.linkedin.com/in/kristiansakarisson/">
+      <Typography.ExternalLink href="https://www.linkedin.com/in/kristiansakarisson/">
         LinkedIn
-      </Typography.Link>{" "}
+      </Typography.ExternalLink>{" "}
       or just{" "}
-      <Typography.Link href="mailto: kristian@sakarisson.com">
+      <Typography.ExternalLink href="mailto: kristian@sakarisson.com">
         email me
-      </Typography.Link>
+      </Typography.ExternalLink>
       .
     </Body>
   </Layout>

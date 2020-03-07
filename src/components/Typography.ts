@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { Link } from "gatsby"
 import Color from "../style/Color"
 
 export const Title = styled.h1`
@@ -24,6 +25,11 @@ export const Heading = styled.h2<{ hasMargin?: boolean }>`
   margin: ${({ hasMargin }) => (hasMargin ? "24px 0px 12px" : "auto")};
   font-weight: bold;
 `
-export const Link = styled.a`
+
+export const ExternalLink = styled.a`
+  color: ${Color.TEXT_HIGHLIGHT};
+`
+
+export const InternalLink = styled(Link)`
   color: ${Color.TEXT_HIGHLIGHT};
 `
