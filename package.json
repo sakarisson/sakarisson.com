@@ -14,6 +14,7 @@
     "gatsby-plugin-styled-components": "^3.1.19",
     "gatsby-plugin-typescript": "^2.1.27",
     "gatsby-source-filesystem": "^2.1.46",
+    "gatsby-transformer-remark": "^2.6.55",
     "gatsby-transformer-sharp": "^2.3.13",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
@@ -25,12 +26,12 @@
     "@graphql-codegen/cli": "^1.12.2",
     "@graphql-codegen/introspection": "1.12.2",
     "@graphql-codegen/typescript": "1.12.2",
+    "@graphql-codegen/typescript-graphql-files-modules": "1.12.2",
     "@graphql-codegen/typescript-operations": "1.12.2",
     "@types/react-helmet": "^5.0.15",
     "@types/styled-components": "^4.4.3",
     "prettier": "^1.19.1",
-    "typescript": "^3.8.3",
-    "@graphql-codegen/typescript-graphql-files-modules": "1.12.2"
+    "typescript": "^3.8.3"
   },
   "keywords": [
     "gatsby"

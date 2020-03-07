@@ -62,6 +62,8 @@ export type Directory = Node & {
   ctime: Scalars['Date'],
   birthtime?: Maybe<Scalars['Date']>,
   birthtimeMs?: Maybe<Scalars['Float']>,
+  blksize?: Maybe<Scalars['Int']>,
+  blocks?: Maybe<Scalars['Int']>,
   id: Scalars['ID'],
   parent?: Maybe<Node>,
   children: Array<Node>,
@@ -185,6 +187,8 @@ export enum DirectoryFieldsEnum {
   ctime = 'ctime',
   birthtime = 'birthtime',
   birthtimeMs = 'birthtimeMs',
+  blksize = 'blksize',
+  blocks = 'blocks',
   id = 'id',
   parent___id = 'parent___id',
   parent___parent___id = 'parent___parent___id',
@@ -305,6 +309,8 @@ export type DirectoryFilterInput = {
   ctime?: Maybe<DateQueryOperatorInput>,
   birthtime?: Maybe<DateQueryOperatorInput>,
   birthtimeMs?: Maybe<FloatQueryOperatorInput>,
+  blksize?: Maybe<IntQueryOperatorInput>,
+  blocks?: Maybe<IntQueryOperatorInput>,
   id?: Maybe<StringQueryOperatorInput>,
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
@@ -365,12 +371,15 @@ export type File = Node & {
   ctime: Scalars['Date'],
   birthtime?: Maybe<Scalars['Date']>,
   birthtimeMs?: Maybe<Scalars['Float']>,
+  blksize?: Maybe<Scalars['Int']>,
+  blocks?: Maybe<Scalars['Int']>,
   publicURL?: Maybe<Scalars['String']>,
   childImageSharp?: Maybe<ImageSharp>,
   id: Scalars['ID'],
   parent?: Maybe<Node>,
   children: Array<Node>,
   internal: Internal,
+  childMarkdownRemark?: Maybe<MarkdownRemark>,
 };
 
 
@@ -490,6 +499,8 @@ export enum FileFieldsEnum {
   ctime = 'ctime',
   birthtime = 'birthtime',
   birthtimeMs = 'birthtimeMs',
+  blksize = 'blksize',
+  blocks = 'blocks',
   publicURL = 'publicURL',
   childImageSharp___fixed___base64 = 'childImageSharp___fixed___base64',
   childImageSharp___fixed___tracedSVG = 'childImageSharp___fixed___tracedSVG',
@@ -667,7 +678,62 @@ export enum FileFieldsEnum {
   internal___ignoreType = 'internal___ignoreType',
   internal___mediaType = 'internal___mediaType',
   internal___owner = 'internal___owner',
-  internal___type = 'internal___type'
+  internal___type = 'internal___type',
+  childMarkdownRemark___id = 'childMarkdownRemark___id',
+  childMarkdownRemark___frontmatter___title = 'childMarkdownRemark___frontmatter___title',
+  childMarkdownRemark___frontmatter___path = 'childMarkdownRemark___frontmatter___path',
+  childMarkdownRemark___frontmatter___date = 'childMarkdownRemark___frontmatter___date',
+  childMarkdownRemark___excerpt = 'childMarkdownRemark___excerpt',
+  childMarkdownRemark___rawMarkdownBody = 'childMarkdownRemark___rawMarkdownBody',
+  childMarkdownRemark___fileAbsolutePath = 'childMarkdownRemark___fileAbsolutePath',
+  childMarkdownRemark___html = 'childMarkdownRemark___html',
+  childMarkdownRemark___htmlAst = 'childMarkdownRemark___htmlAst',
+  childMarkdownRemark___excerptAst = 'childMarkdownRemark___excerptAst',
+  childMarkdownRemark___headings = 'childMarkdownRemark___headings',
+  childMarkdownRemark___headings___value = 'childMarkdownRemark___headings___value',
+  childMarkdownRemark___headings___depth = 'childMarkdownRemark___headings___depth',
+  childMarkdownRemark___timeToRead = 'childMarkdownRemark___timeToRead',
+  childMarkdownRemark___tableOfContents = 'childMarkdownRemark___tableOfContents',
+  childMarkdownRemark___wordCount___paragraphs = 'childMarkdownRemark___wordCount___paragraphs',
+  childMarkdownRemark___wordCount___sentences = 'childMarkdownRemark___wordCount___sentences',
+  childMarkdownRemark___wordCount___words = 'childMarkdownRemark___wordCount___words',
+  childMarkdownRemark___parent___id = 'childMarkdownRemark___parent___id',
+  childMarkdownRemark___parent___parent___id = 'childMarkdownRemark___parent___parent___id',
+  childMarkdownRemark___parent___parent___children = 'childMarkdownRemark___parent___parent___children',
+  childMarkdownRemark___parent___children = 'childMarkdownRemark___parent___children',
+  childMarkdownRemark___parent___children___id = 'childMarkdownRemark___parent___children___id',
+  childMarkdownRemark___parent___children___children = 'childMarkdownRemark___parent___children___children',
+  childMarkdownRemark___parent___internal___content = 'childMarkdownRemark___parent___internal___content',
+  childMarkdownRemark___parent___internal___contentDigest = 'childMarkdownRemark___parent___internal___contentDigest',
+  childMarkdownRemark___parent___internal___description = 'childMarkdownRemark___parent___internal___description',
+  childMarkdownRemark___parent___internal___fieldOwners = 'childMarkdownRemark___parent___internal___fieldOwners',
+  childMarkdownRemark___parent___internal___ignoreType = 'childMarkdownRemark___parent___internal___ignoreType',
+  childMarkdownRemark___parent___internal___mediaType = 'childMarkdownRemark___parent___internal___mediaType',
+  childMarkdownRemark___parent___internal___owner = 'childMarkdownRemark___parent___internal___owner',
+  childMarkdownRemark___parent___internal___type = 'childMarkdownRemark___parent___internal___type',
+  childMarkdownRemark___children = 'childMarkdownRemark___children',
+  childMarkdownRemark___children___id = 'childMarkdownRemark___children___id',
+  childMarkdownRemark___children___parent___id = 'childMarkdownRemark___children___parent___id',
+  childMarkdownRemark___children___parent___children = 'childMarkdownRemark___children___parent___children',
+  childMarkdownRemark___children___children = 'childMarkdownRemark___children___children',
+  childMarkdownRemark___children___children___id = 'childMarkdownRemark___children___children___id',
+  childMarkdownRemark___children___children___children = 'childMarkdownRemark___children___children___children',
+  childMarkdownRemark___children___internal___content = 'childMarkdownRemark___children___internal___content',
+  childMarkdownRemark___children___internal___contentDigest = 'childMarkdownRemark___children___internal___contentDigest',
+  childMarkdownRemark___children___internal___description = 'childMarkdownRemark___children___internal___description',
+  childMarkdownRemark___children___internal___fieldOwners = 'childMarkdownRemark___children___internal___fieldOwners',
+  childMarkdownRemark___children___internal___ignoreType = 'childMarkdownRemark___children___internal___ignoreType',
+  childMarkdownRemark___children___internal___mediaType = 'childMarkdownRemark___children___internal___mediaType',
+  childMarkdownRemark___children___internal___owner = 'childMarkdownRemark___children___internal___owner',
+  childMarkdownRemark___children___internal___type = 'childMarkdownRemark___children___internal___type',
+  childMarkdownRemark___internal___content = 'childMarkdownRemark___internal___content',
+  childMarkdownRemark___internal___contentDigest = 'childMarkdownRemark___internal___contentDigest',
+  childMarkdownRemark___internal___description = 'childMarkdownRemark___internal___description',
+  childMarkdownRemark___internal___fieldOwners = 'childMarkdownRemark___internal___fieldOwners',
+  childMarkdownRemark___internal___ignoreType = 'childMarkdownRemark___internal___ignoreType',
+  childMarkdownRemark___internal___mediaType = 'childMarkdownRemark___internal___mediaType',
+  childMarkdownRemark___internal___owner = 'childMarkdownRemark___internal___owner',
+  childMarkdownRemark___internal___type = 'childMarkdownRemark___internal___type'
 }
 
 export type FileFilterInput = {
@@ -702,12 +768,15 @@ export type FileFilterInput = {
   ctime?: Maybe<DateQueryOperatorInput>,
   birthtime?: Maybe<DateQueryOperatorInput>,
   birthtimeMs?: Maybe<FloatQueryOperatorInput>,
+  blksize?: Maybe<IntQueryOperatorInput>,
+  blocks?: Maybe<IntQueryOperatorInput>,
   publicURL?: Maybe<StringQueryOperatorInput>,
   childImageSharp?: Maybe<ImageSharpFilterInput>,
   id?: Maybe<StringQueryOperatorInput>,
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
+  childMarkdownRemark?: Maybe<MarkdownRemarkFilterInput>,
 };
 
 export type FileGroupConnection = {
@@ -1278,6 +1347,292 @@ export type IntQueryOperatorInput = {
 };
 
 
+export type JsonQueryOperatorInput = {
+  eq?: Maybe<Scalars['JSON']>,
+  ne?: Maybe<Scalars['JSON']>,
+  in?: Maybe<Array<Maybe<Scalars['JSON']>>>,
+  nin?: Maybe<Array<Maybe<Scalars['JSON']>>>,
+  regex?: Maybe<Scalars['JSON']>,
+  glob?: Maybe<Scalars['JSON']>,
+};
+
+export enum MarkdownExcerptFormats {
+  PLAIN = 'PLAIN',
+  HTML = 'HTML',
+  MARKDOWN = 'MARKDOWN'
+}
+
+export type MarkdownHeading = {
+   __typename?: 'MarkdownHeading',
+  value?: Maybe<Scalars['String']>,
+  depth?: Maybe<Scalars['Int']>,
+};
+
+export type MarkdownHeadingFilterInput = {
+  value?: Maybe<StringQueryOperatorInput>,
+  depth?: Maybe<IntQueryOperatorInput>,
+};
+
+export type MarkdownHeadingFilterListInput = {
+  elemMatch?: Maybe<MarkdownHeadingFilterInput>,
+};
+
+export enum MarkdownHeadingLevels {
+  h1 = 'h1',
+  h2 = 'h2',
+  h3 = 'h3',
+  h4 = 'h4',
+  h5 = 'h5',
+  h6 = 'h6'
+}
+
+export type MarkdownRemark = Node & {
+   __typename?: 'MarkdownRemark',
+  id: Scalars['ID'],
+  frontmatter?: Maybe<MarkdownRemarkFrontmatter>,
+  excerpt?: Maybe<Scalars['String']>,
+  rawMarkdownBody?: Maybe<Scalars['String']>,
+  fileAbsolutePath?: Maybe<Scalars['String']>,
+  html?: Maybe<Scalars['String']>,
+  htmlAst?: Maybe<Scalars['JSON']>,
+  excerptAst?: Maybe<Scalars['JSON']>,
+  headings?: Maybe<Array<Maybe<MarkdownHeading>>>,
+  timeToRead?: Maybe<Scalars['Int']>,
+  tableOfContents?: Maybe<Scalars['String']>,
+  wordCount?: Maybe<MarkdownWordCount>,
+  parent?: Maybe<Node>,
+  children: Array<Node>,
+  internal: Internal,
+};
+
+
+export type MarkdownRemarkExcerptArgs = {
+  pruneLength?: Maybe<Scalars['Int']>,
+  truncate?: Maybe<Scalars['Boolean']>,
+  format?: Maybe<MarkdownExcerptFormats>
+};
+
+
+export type MarkdownRemarkExcerptAstArgs = {
+  pruneLength?: Maybe<Scalars['Int']>,
+  truncate?: Maybe<Scalars['Boolean']>
+};
+
+
+export type MarkdownRemarkHeadingsArgs = {
+  depth?: Maybe<MarkdownHeadingLevels>
+};
+
+
+export type MarkdownRemarkTableOfContentsArgs = {
+  absolute?: Maybe<Scalars['Boolean']>,
+  pathToSlugField?: Maybe<Scalars['String']>,
+  maxDepth?: Maybe<Scalars['Int']>,
+  heading?: Maybe<Scalars['String']>
+};
+
+export type MarkdownRemarkConnection = {
+   __typename?: 'MarkdownRemarkConnection',
+  totalCount: Scalars['Int'],
+  edges: Array<MarkdownRemarkEdge>,
+  nodes: Array<MarkdownRemark>,
+  pageInfo: PageInfo,
+  distinct: Array<Scalars['String']>,
+  group: Array<MarkdownRemarkGroupConnection>,
+};
+
+
+export type MarkdownRemarkConnectionDistinctArgs = {
+  field: MarkdownRemarkFieldsEnum
+};
+
+
+export type MarkdownRemarkConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>,
+  limit?: Maybe<Scalars['Int']>,
+  field: MarkdownRemarkFieldsEnum
+};
+
+export type MarkdownRemarkEdge = {
+   __typename?: 'MarkdownRemarkEdge',
+  next?: Maybe<MarkdownRemark>,
+  node: MarkdownRemark,
+  previous?: Maybe<MarkdownRemark>,
+};
+
+export enum MarkdownRemarkFieldsEnum {
+  id = 'id',
+  frontmatter___title = 'frontmatter___title',
+  frontmatter___path = 'frontmatter___path',
+  frontmatter___date = 'frontmatter___date',
+  excerpt = 'excerpt',
+  rawMarkdownBody = 'rawMarkdownBody',
+  fileAbsolutePath = 'fileAbsolutePath',
+  html = 'html',
+  htmlAst = 'htmlAst',
+  excerptAst = 'excerptAst',
+  headings = 'headings',
+  headings___value = 'headings___value',
+  headings___depth = 'headings___depth',
+  timeToRead = 'timeToRead',
+  tableOfContents = 'tableOfContents',
+  wordCount___paragraphs = 'wordCount___paragraphs',
+  wordCount___sentences = 'wordCount___sentences',
+  wordCount___words = 'wordCount___words',
+  parent___id = 'parent___id',
+  parent___parent___id = 'parent___parent___id',
+  parent___parent___parent___id = 'parent___parent___parent___id',
+  parent___parent___parent___children = 'parent___parent___parent___children',
+  parent___parent___children = 'parent___parent___children',
+  parent___parent___children___id = 'parent___parent___children___id',
+  parent___parent___children___children = 'parent___parent___children___children',
+  parent___parent___internal___content = 'parent___parent___internal___content',
+  parent___parent___internal___contentDigest = 'parent___parent___internal___contentDigest',
+  parent___parent___internal___description = 'parent___parent___internal___description',
+  parent___parent___internal___fieldOwners = 'parent___parent___internal___fieldOwners',
+  parent___parent___internal___ignoreType = 'parent___parent___internal___ignoreType',
+  parent___parent___internal___mediaType = 'parent___parent___internal___mediaType',
+  parent___parent___internal___owner = 'parent___parent___internal___owner',
+  parent___parent___internal___type = 'parent___parent___internal___type',
+  parent___children = 'parent___children',
+  parent___children___id = 'parent___children___id',
+  parent___children___parent___id = 'parent___children___parent___id',
+  parent___children___parent___children = 'parent___children___parent___children',
+  parent___children___children = 'parent___children___children',
+  parent___children___children___id = 'parent___children___children___id',
+  parent___children___children___children = 'parent___children___children___children',
+  parent___children___internal___content = 'parent___children___internal___content',
+  parent___children___internal___contentDigest = 'parent___children___internal___contentDigest',
+  parent___children___internal___description = 'parent___children___internal___description',
+  parent___children___internal___fieldOwners = 'parent___children___internal___fieldOwners',
+  parent___children___internal___ignoreType = 'parent___children___internal___ignoreType',
+  parent___children___internal___mediaType = 'parent___children___internal___mediaType',
+  parent___children___internal___owner = 'parent___children___internal___owner',
+  parent___children___internal___type = 'parent___children___internal___type',
+  parent___internal___content = 'parent___internal___content',
+  parent___internal___contentDigest = 'parent___internal___contentDigest',
+  parent___internal___description = 'parent___internal___description',
+  parent___internal___fieldOwners = 'parent___internal___fieldOwners',
+  parent___internal___ignoreType = 'parent___internal___ignoreType',
+  parent___internal___mediaType = 'parent___internal___mediaType',
+  parent___internal___owner = 'parent___internal___owner',
+  parent___internal___type = 'parent___internal___type',
+  children = 'children',
+  children___id = 'children___id',
+  children___parent___id = 'children___parent___id',
+  children___parent___parent___id = 'children___parent___parent___id',
+  children___parent___parent___children = 'children___parent___parent___children',
+  children___parent___children = 'children___parent___children',
+  children___parent___children___id = 'children___parent___children___id',
+  children___parent___children___children = 'children___parent___children___children',
+  children___parent___internal___content = 'children___parent___internal___content',
+  children___parent___internal___contentDigest = 'children___parent___internal___contentDigest',
+  children___parent___internal___description = 'children___parent___internal___description',
+  children___parent___internal___fieldOwners = 'children___parent___internal___fieldOwners',
+  children___parent___internal___ignoreType = 'children___parent___internal___ignoreType',
+  children___parent___internal___mediaType = 'children___parent___internal___mediaType',
+  children___parent___internal___owner = 'children___parent___internal___owner',
+  children___parent___internal___type = 'children___parent___internal___type',
+  children___children = 'children___children',
+  children___children___id = 'children___children___id',
+  children___children___parent___id = 'children___children___parent___id',
+  children___children___parent___children = 'children___children___parent___children',
+  children___children___children = 'children___children___children',
+  children___children___children___id = 'children___children___children___id',
+  children___children___children___children = 'children___children___children___children',
+  children___children___internal___content = 'children___children___internal___content',
+  children___children___internal___contentDigest = 'children___children___internal___contentDigest',
+  children___children___internal___description = 'children___children___internal___description',
+  children___children___internal___fieldOwners = 'children___children___internal___fieldOwners',
+  children___children___internal___ignoreType = 'children___children___internal___ignoreType',
+  children___children___internal___mediaType = 'children___children___internal___mediaType',
+  children___children___internal___owner = 'children___children___internal___owner',
+  children___children___internal___type = 'children___children___internal___type',
+  children___internal___content = 'children___internal___content',
+  children___internal___contentDigest = 'children___internal___contentDigest',
+  children___internal___description = 'children___internal___description',
+  children___internal___fieldOwners = 'children___internal___fieldOwners',
+  children___internal___ignoreType = 'children___internal___ignoreType',
+  children___internal___mediaType = 'children___internal___mediaType',
+  children___internal___owner = 'children___internal___owner',
+  children___internal___type = 'children___internal___type',
+  internal___content = 'internal___content',
+  internal___contentDigest = 'internal___contentDigest',
+  internal___description = 'internal___description',
+  internal___fieldOwners = 'internal___fieldOwners',
+  internal___ignoreType = 'internal___ignoreType',
+  internal___mediaType = 'internal___mediaType',
+  internal___owner = 'internal___owner',
+  internal___type = 'internal___type'
+}
+
+export type MarkdownRemarkFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>,
+  frontmatter?: Maybe<MarkdownRemarkFrontmatterFilterInput>,
+  excerpt?: Maybe<StringQueryOperatorInput>,
+  rawMarkdownBody?: Maybe<StringQueryOperatorInput>,
+  fileAbsolutePath?: Maybe<StringQueryOperatorInput>,
+  html?: Maybe<StringQueryOperatorInput>,
+  htmlAst?: Maybe<JsonQueryOperatorInput>,
+  excerptAst?: Maybe<JsonQueryOperatorInput>,
+  headings?: Maybe<MarkdownHeadingFilterListInput>,
+  timeToRead?: Maybe<IntQueryOperatorInput>,
+  tableOfContents?: Maybe<StringQueryOperatorInput>,
+  wordCount?: Maybe<MarkdownWordCountFilterInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>,
+};
+
+export type MarkdownRemarkFrontmatter = {
+   __typename?: 'MarkdownRemarkFrontmatter',
+  title?: Maybe<Scalars['String']>,
+  path?: Maybe<Scalars['String']>,
+  date?: Maybe<Scalars['Date']>,
+};
+
+
+export type MarkdownRemarkFrontmatterDateArgs = {
+  formatString?: Maybe<Scalars['String']>,
+  fromNow?: Maybe<Scalars['Boolean']>,
+  difference?: Maybe<Scalars['String']>,
+  locale?: Maybe<Scalars['String']>
+};
+
+export type MarkdownRemarkFrontmatterFilterInput = {
+  title?: Maybe<StringQueryOperatorInput>,
+  path?: Maybe<StringQueryOperatorInput>,
+  date?: Maybe<DateQueryOperatorInput>,
+};
+
+export type MarkdownRemarkGroupConnection = {
+   __typename?: 'MarkdownRemarkGroupConnection',
+  totalCount: Scalars['Int'],
+  edges: Array<MarkdownRemarkEdge>,
+  nodes: Array<MarkdownRemark>,
+  pageInfo: PageInfo,
+  field: Scalars['String'],
+  fieldValue?: Maybe<Scalars['String']>,
+};
+
+export type MarkdownRemarkSortInput = {
+  fields?: Maybe<Array<Maybe<MarkdownRemarkFieldsEnum>>>,
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
+};
+
+export type MarkdownWordCount = {
+   __typename?: 'MarkdownWordCount',
+  paragraphs?: Maybe<Scalars['Int']>,
+  sentences?: Maybe<Scalars['Int']>,
+  words?: Maybe<Scalars['Int']>,
+};
+
+export type MarkdownWordCountFilterInput = {
+  paragraphs?: Maybe<IntQueryOperatorInput>,
+  sentences?: Maybe<IntQueryOperatorInput>,
+  words?: Maybe<IntQueryOperatorInput>,
+};
+
 export type Node = {
   id: Scalars['ID'],
   parent?: Maybe<Node>,
@@ -1333,6 +1688,8 @@ export type Query = {
   allFile: FileConnection,
   directory?: Maybe<Directory>,
   allDirectory: DirectoryConnection,
+  markdownRemark?: Maybe<MarkdownRemark>,
+  allMarkdownRemark: MarkdownRemarkConnection,
   imageSharp?: Maybe<ImageSharp>,
   allImageSharp: ImageSharpConnection,
   site?: Maybe<Site>,
@@ -1376,12 +1733,15 @@ export type QueryFileArgs = {
   ctime?: Maybe<DateQueryOperatorInput>,
   birthtime?: Maybe<DateQueryOperatorInput>,
   birthtimeMs?: Maybe<FloatQueryOperatorInput>,
+  blksize?: Maybe<IntQueryOperatorInput>,
+  blocks?: Maybe<IntQueryOperatorInput>,
   publicURL?: Maybe<StringQueryOperatorInput>,
   childImageSharp?: Maybe<ImageSharpFilterInput>,
   id?: Maybe<StringQueryOperatorInput>,
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
-  internal?: Maybe<InternalFilterInput>
+  internal?: Maybe<InternalFilterInput>,
+  childMarkdownRemark?: Maybe<MarkdownRemarkFilterInput>
 };
 
 
@@ -1425,6 +1785,8 @@ export type QueryDirectoryArgs = {
   ctime?: Maybe<DateQueryOperatorInput>,
   birthtime?: Maybe<DateQueryOperatorInput>,
   birthtimeMs?: Maybe<FloatQueryOperatorInput>,
+  blksize?: Maybe<IntQueryOperatorInput>,
+  blocks?: Maybe<IntQueryOperatorInput>,
   id?: Maybe<StringQueryOperatorInput>,
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
@@ -1435,6 +1797,33 @@ export type QueryDirectoryArgs = {
 export type QueryAllDirectoryArgs = {
   filter?: Maybe<DirectoryFilterInput>,
   sort?: Maybe<DirectorySortInput>,
+  skip?: Maybe<Scalars['Int']>,
+  limit?: Maybe<Scalars['Int']>
+};
+
+
+export type QueryMarkdownRemarkArgs = {
+  id?: Maybe<StringQueryOperatorInput>,
+  frontmatter?: Maybe<MarkdownRemarkFrontmatterFilterInput>,
+  excerpt?: Maybe<StringQueryOperatorInput>,
+  rawMarkdownBody?: Maybe<StringQueryOperatorInput>,
+  fileAbsolutePath?: Maybe<StringQueryOperatorInput>,
+  html?: Maybe<StringQueryOperatorInput>,
+  htmlAst?: Maybe<JsonQueryOperatorInput>,
+  excerptAst?: Maybe<JsonQueryOperatorInput>,
+  headings?: Maybe<MarkdownHeadingFilterListInput>,
+  timeToRead?: Maybe<IntQueryOperatorInput>,
+  tableOfContents?: Maybe<StringQueryOperatorInput>,
+  wordCount?: Maybe<MarkdownWordCountFilterInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>
+};
+
+
+export type QueryAllMarkdownRemarkArgs = {
+  filter?: Maybe<MarkdownRemarkFilterInput>,
+  sort?: Maybe<MarkdownRemarkSortInput>,
   skip?: Maybe<Scalars['Int']>,
   limit?: Maybe<Scalars['Int']>
 };
@@ -1470,6 +1859,8 @@ export type QuerySiteArgs = {
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>,
   port?: Maybe<IntQueryOperatorInput>,
   host?: Maybe<StringQueryOperatorInput>,
+  polyfill?: Maybe<BooleanQueryOperatorInput>,
+  pathPrefix?: Maybe<StringQueryOperatorInput>,
   buildTime?: Maybe<DateQueryOperatorInput>
 };
 
@@ -1512,8 +1903,8 @@ export type QuerySitePageArgs = {
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
-  internalComponentName?: Maybe<StringQueryOperatorInput>,
   path?: Maybe<StringQueryOperatorInput>,
+  internalComponentName?: Maybe<StringQueryOperatorInput>,
   component?: Maybe<StringQueryOperatorInput>,
   componentChunkName?: Maybe<StringQueryOperatorInput>,
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>,
@@ -1539,6 +1930,8 @@ export type Site = Node & {
   siteMetadata?: Maybe<SiteSiteMetadata>,
   port?: Maybe<Scalars['Int']>,
   host?: Maybe<Scalars['String']>,
+  polyfill?: Maybe<Scalars['Boolean']>,
+  pathPrefix?: Maybe<Scalars['String']>,
   buildTime?: Maybe<Scalars['Date']>,
 };
 
@@ -1671,6 +2064,8 @@ export enum SiteFieldsEnum {
   siteMetadata___author = 'siteMetadata___author',
   port = 'port',
   host = 'host',
+  polyfill = 'polyfill',
+  pathPrefix = 'pathPrefix',
   buildTime = 'buildTime'
 }
 
@@ -1682,6 +2077,8 @@ export type SiteFilterInput = {
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>,
   port?: Maybe<IntQueryOperatorInput>,
   host?: Maybe<StringQueryOperatorInput>,
+  polyfill?: Maybe<BooleanQueryOperatorInput>,
+  pathPrefix?: Maybe<StringQueryOperatorInput>,
   buildTime?: Maybe<DateQueryOperatorInput>,
 };
 
@@ -1701,8 +2098,8 @@ export type SitePage = Node & {
   parent?: Maybe<Node>,
   children: Array<Node>,
   internal: Internal,
-  internalComponentName?: Maybe<Scalars['String']>,
   path?: Maybe<Scalars['String']>,
+  internalComponentName?: Maybe<Scalars['String']>,
   component?: Maybe<Scalars['String']>,
   componentChunkName?: Maybe<Scalars['String']>,
   isCreatedByStatefulCreatePages?: Maybe<Scalars['Boolean']>,
@@ -1827,8 +2224,8 @@ export enum SitePageFieldsEnum {
   internal___mediaType = 'internal___mediaType',
   internal___owner = 'internal___owner',
   internal___type = 'internal___type',
-  internalComponentName = 'internalComponentName',
   path = 'path',
+  internalComponentName = 'internalComponentName',
   component = 'component',
   componentChunkName = 'componentChunkName',
   isCreatedByStatefulCreatePages = 'isCreatedByStatefulCreatePages',
@@ -1911,8 +2308,8 @@ export type SitePageFilterInput = {
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
-  internalComponentName?: Maybe<StringQueryOperatorInput>,
   path?: Maybe<StringQueryOperatorInput>,
+  internalComponentName?: Maybe<StringQueryOperatorInput>,
   component?: Maybe<StringQueryOperatorInput>,
   componentChunkName?: Maybe<StringQueryOperatorInput>,
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>,
@@ -2424,6 +2821,23 @@ export type SiteMetaQuery = (
     & { siteMetadata: Maybe<(
       { __typename?: 'SiteSiteMetadata' }
       & Pick<SiteSiteMetadata, 'title'>
+    )> }
+  )> }
+);
+
+export type Unnamed_2_QueryVariables = {
+  path: Scalars['String']
+};
+
+
+export type Unnamed_2_Query = (
+  { __typename?: 'Query' }
+  & { markdownRemark: Maybe<(
+    { __typename?: 'MarkdownRemark' }
+    & Pick<MarkdownRemark, 'html'>
+    & { frontmatter: Maybe<(
+      { __typename?: 'MarkdownRemarkFrontmatter' }
+      & Pick<MarkdownRemarkFrontmatter, 'date' | 'path' | 'title'>
     )> }
   )> }
 );
