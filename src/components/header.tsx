@@ -16,8 +16,9 @@ const Head = styled.header`
   padding: 5em 0em 2.5em;
 `
 
-const Title = styled.h1`
-  color: ${Color.TEXT_HIGHLIGHT};
+const Title = styled(Typography.Title)`
+  font-size: 32px;
+  font-weight: 900;
 `
 
 const Container = styled.div``
