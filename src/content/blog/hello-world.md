@@ -1,14 +1,9 @@
 ---
-path: "/blog/my-first-post"
+path: "/blog/test"
 date: "2019-05-04"
-title: "My first blog post"
+title: "A test blog"
 ---
 
-## Hello world
+## Test
 
-### This is a test blog.
-
-Subsection
-
-## Interesting
-
+This is a test blog

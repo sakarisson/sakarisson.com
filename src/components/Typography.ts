@@ -41,4 +41,7 @@ export const ExternalLink = styled.a`
 
 export const InternalLink = styled(Link)`
   color: ${Color.TEXT_HIGHLIGHT};
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
 `
