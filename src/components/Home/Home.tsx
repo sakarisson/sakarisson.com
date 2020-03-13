@@ -21,7 +21,8 @@ type Props = { data: Data }
 
 const Home: React.FC<Props> = ({ data }) => {
   const blogEdges = data.allMarkdownRemark.edges
-  const hasBlogs = blogEdges.length > 0
+  // const hasBlogs = blogEdges.length > 0
+  const hasBlogs = false
   return (
     <Layout>
       <Heading>About me</Heading>
