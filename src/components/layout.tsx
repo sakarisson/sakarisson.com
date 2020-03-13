@@ -13,12 +13,9 @@ enum GridArea {
   FOOTER = "FOOTER",
 }
 
-const FONT_FAMILY = '"Menlo", "Meslo LG", monospace;'
-
 const GlobalStyle = createGlobalStyle`
   * {
     margin: 0px;
-    font-family: ${FONT_FAMILY}
   }
   body, html {
     height: 100%;
