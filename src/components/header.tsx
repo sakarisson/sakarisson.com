@@ -17,8 +17,14 @@ const Head = styled.header`
 `
 
 const Title = styled(Typography.Title)`
-  font-size: 32px;
+  font-size: 42px;
   font-weight: 900;
+`
+
+const Subtitle = styled(Typography.Body)`
+  font-weight: bold;
+  font-size: 20px;
+  color: ${Color.TEXT_SECONDARY};
 `
 
 const Container = styled.div``
@@ -28,7 +34,7 @@ const Header = () => (
     <StyledLink to="/">
       <Container>
         <Title>Kristian Sakarisson</Title>
-        <Typography.Body>software engineer</Typography.Body>
+        <Subtitle>software engineer in Helsinki</Subtitle>
       </Container>
     </StyledLink>
   </Head>
