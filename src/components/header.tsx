@@ -1,7 +1,7 @@
 import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
-import Img, { FixedObject } from "gatsby-image"
+import Img, { FluidObject } from "gatsby-image"
 
 import { File } from "../generated/graphql"
 import * as Typography from "./Typography"
@@ -33,6 +33,9 @@ const Container = styled.div`
   display: grid;
   grid-auto-flow: column;
   padding: 0em 2em;
+  @media only screen and (max-width: 42em) {
+    grid-auto-flow: row;
+  }
 `
 
 const LeftContainer = styled.div`
@@ -40,10 +43,16 @@ const LeftContainer = styled.div`
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   padding-right: 2em;
+  @media only screen and (max-width: 42em) {
+    padding-bottom: 2em;
+  }
 `
 
 const RoundImage = styled(Img)`
+  width: 350px;
+  height: 350px;
   border-radius: 50%;
 `
 
@@ -51,8 +60,8 @@ const query = graphql`
   query {
     portrait: file(relativePath: { eq: "me_portrait.jpg" }) {
       childImageSharp {
-        fixed(width: 350, height: 350) {
-          ...GatsbyImageSharpFixed
+        fluid(maxWidth: 350) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
@@ -66,7 +75,7 @@ type QueryData = {
 const Header = () => {
   const data = useStaticQuery<QueryData>(query)
 
-  const portraitFixed = data.portrait.childImageSharp?.fixed as FixedObject
+  const fluid = data.portrait.childImageSharp?.fluid as FluidObject
 
   return (
     <Head>
@@ -78,7 +87,7 @@ const Header = () => {
               <Subtitle>software engineer in Helsinki</Subtitle>
             </div>
           </LeftContainer>
-          <RoundImage fixed={portraitFixed} />
+          <RoundImage fluid={fluid} />
         </Container>
       </StyledLink>
     </Head>
