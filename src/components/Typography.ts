@@ -2,8 +2,8 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 import Color from "../style/Color"
 
-const HEADING_FONT = "Montserrat, sans-serif"
-const BODY_FONT = '"Merriweather", "Georgia", serif'
+const HEADING_FONT = '"Roboto Mono", monospace'
+const BODY_FONT = '"Roboto Mono", monospace'
 
 export const Title = styled.h1<{ hasMargin?: boolean }>`
   color: ${Color.TEXT_HIGHLIGHT};
@@ -32,11 +32,12 @@ export const Body = styled.p`
   font-family: ${BODY_FONT};
   font-size: 16px;
   font-weight: 400;
-  line-height: 28px;
+  line-height: 24px;
 `
 
 export const Small = styled.p`
   color: ${Color.TEXT_PRIMARY};
+  font-family: ${BODY_FONT};
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;

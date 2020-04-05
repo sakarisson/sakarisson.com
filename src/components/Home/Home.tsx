@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 
 import Layout from "../layout"
 import * as Typography from "../Typography"
@@ -13,13 +13,31 @@ const Heading = styled(Typography.Title).attrs(() => ({
 
 const Body = styled(Typography.Body)``
 
-type Data = {
+type QueryData = {
   allMarkdownRemark: MarkdownRemarkConnection
 }
 
-type Props = { data: Data }
+const query = graphql`
+  query {
+    allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date] }
+      limit: 10
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            date
+            path
+          }
+        }
+      }
+    }
+  }
+`
 
-const Home: React.FC<Props> = ({ data }) => {
+const Home: React.FC = () => {
+  const data = useStaticQuery<QueryData>(query)
   const blogEdges = data.allMarkdownRemark.edges
   // const hasBlogs = blogEdges.length > 0
   const hasBlogs = false
@@ -86,24 +104,5 @@ const Home: React.FC<Props> = ({ data }) => {
     </Layout>
   )
 }
-
-export const pageQuery = graphql`
-  query {
-    allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
-      limit: 10
-    ) {
-      edges {
-        node {
-          frontmatter {
-            title
-            date
-            path
-          }
-        }
-      }
-    }
-  }
-`
 
 export default Home

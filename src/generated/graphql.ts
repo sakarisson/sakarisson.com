@@ -62,8 +62,6 @@ export type Directory = Node & {
   ctime: Scalars['Date'],
   birthtime?: Maybe<Scalars['Date']>,
   birthtimeMs?: Maybe<Scalars['Float']>,
-  blksize?: Maybe<Scalars['Int']>,
-  blocks?: Maybe<Scalars['Int']>,
   id: Scalars['ID'],
   parent?: Maybe<Node>,
   children: Array<Node>,
@@ -187,8 +185,6 @@ export enum DirectoryFieldsEnum {
   ctime = 'ctime',
   birthtime = 'birthtime',
   birthtimeMs = 'birthtimeMs',
-  blksize = 'blksize',
-  blocks = 'blocks',
   id = 'id',
   parent___id = 'parent___id',
   parent___parent___id = 'parent___parent___id',
@@ -309,8 +305,6 @@ export type DirectoryFilterInput = {
   ctime?: Maybe<DateQueryOperatorInput>,
   birthtime?: Maybe<DateQueryOperatorInput>,
   birthtimeMs?: Maybe<FloatQueryOperatorInput>,
-  blksize?: Maybe<IntQueryOperatorInput>,
-  blocks?: Maybe<IntQueryOperatorInput>,
   id?: Maybe<StringQueryOperatorInput>,
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
@@ -371,8 +365,6 @@ export type File = Node & {
   ctime: Scalars['Date'],
   birthtime?: Maybe<Scalars['Date']>,
   birthtimeMs?: Maybe<Scalars['Float']>,
-  blksize?: Maybe<Scalars['Int']>,
-  blocks?: Maybe<Scalars['Int']>,
   publicURL?: Maybe<Scalars['String']>,
   childImageSharp?: Maybe<ImageSharp>,
   id: Scalars['ID'],
@@ -499,8 +491,6 @@ export enum FileFieldsEnum {
   ctime = 'ctime',
   birthtime = 'birthtime',
   birthtimeMs = 'birthtimeMs',
-  blksize = 'blksize',
-  blocks = 'blocks',
   publicURL = 'publicURL',
   childImageSharp___fixed___base64 = 'childImageSharp___fixed___base64',
   childImageSharp___fixed___tracedSVG = 'childImageSharp___fixed___tracedSVG',
@@ -768,8 +758,6 @@ export type FileFilterInput = {
   ctime?: Maybe<DateQueryOperatorInput>,
   birthtime?: Maybe<DateQueryOperatorInput>,
   birthtimeMs?: Maybe<FloatQueryOperatorInput>,
-  blksize?: Maybe<IntQueryOperatorInput>,
-  blocks?: Maybe<IntQueryOperatorInput>,
   publicURL?: Maybe<StringQueryOperatorInput>,
   childImageSharp?: Maybe<ImageSharpFilterInput>,
   id?: Maybe<StringQueryOperatorInput>,
@@ -1733,8 +1721,6 @@ export type QueryFileArgs = {
   ctime?: Maybe<DateQueryOperatorInput>,
   birthtime?: Maybe<DateQueryOperatorInput>,
   birthtimeMs?: Maybe<FloatQueryOperatorInput>,
-  blksize?: Maybe<IntQueryOperatorInput>,
-  blocks?: Maybe<IntQueryOperatorInput>,
   publicURL?: Maybe<StringQueryOperatorInput>,
   childImageSharp?: Maybe<ImageSharpFilterInput>,
   id?: Maybe<StringQueryOperatorInput>,
@@ -1785,8 +1771,6 @@ export type QueryDirectoryArgs = {
   ctime?: Maybe<DateQueryOperatorInput>,
   birthtime?: Maybe<DateQueryOperatorInput>,
   birthtimeMs?: Maybe<FloatQueryOperatorInput>,
-  blksize?: Maybe<IntQueryOperatorInput>,
-  blocks?: Maybe<IntQueryOperatorInput>,
   id?: Maybe<StringQueryOperatorInput>,
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
@@ -2799,6 +2783,26 @@ export type Unnamed_1_QueryVariables = {};
 
 export type Unnamed_1_Query = (
   { __typename?: 'Query' }
+  & { allMarkdownRemark: (
+    { __typename?: 'MarkdownRemarkConnection' }
+    & { edges: Array<(
+      { __typename?: 'MarkdownRemarkEdge' }
+      & { node: (
+        { __typename?: 'MarkdownRemark' }
+        & { frontmatter: Maybe<(
+          { __typename?: 'MarkdownRemarkFrontmatter' }
+          & Pick<MarkdownRemarkFrontmatter, 'title' | 'date' | 'path'>
+        )> }
+      ) }
+    )> }
+  ) }
+);
+
+export type Unnamed_2_QueryVariables = {};
+
+
+export type Unnamed_2_Query = (
+  { __typename?: 'Query' }
   & { placeholderImage: Maybe<(
     { __typename?: 'File' }
     & { childImageSharp: Maybe<(
@@ -2825,16 +2829,36 @@ export type SiteMetaQuery = (
   )> }
 );
 
-export type Unnamed_2_QueryVariables = {
+export type Unnamed_3_QueryVariables = {};
+
+
+export type Unnamed_3_Query = (
+  { __typename?: 'Query' }
+  & { allMarkdownRemark: (
+    { __typename?: 'MarkdownRemarkConnection' }
+    & { edges: Array<(
+      { __typename?: 'MarkdownRemarkEdge' }
+      & { node: (
+        { __typename?: 'MarkdownRemark' }
+        & { frontmatter: Maybe<(
+          { __typename?: 'MarkdownRemarkFrontmatter' }
+          & Pick<MarkdownRemarkFrontmatter, 'title' | 'date' | 'path'>
+        )> }
+      ) }
+    )> }
+  ) }
+);
+
+export type Unnamed_4_QueryVariables = {
   path: Scalars['String']
 };
 
 
-export type Unnamed_2_Query = (
+export type Unnamed_4_Query = (
   { __typename?: 'Query' }
   & { markdownRemark: Maybe<(
     { __typename?: 'MarkdownRemark' }
-    & Pick<MarkdownRemark, 'html'>
+    & Pick<MarkdownRemark, 'htmlAst'>
     & { frontmatter: Maybe<(
       { __typename?: 'MarkdownRemarkFrontmatter' }
       & Pick<MarkdownRemarkFrontmatter, 'date' | 'path' | 'title'>
