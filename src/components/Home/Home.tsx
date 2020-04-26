@@ -69,7 +69,7 @@ const Home: React.FC = () => {
       {hasBlogs && (
         <>
           <Heading>Writing</Heading>
-          {blogEdges.map(edge => (
+          {blogEdges.map((edge) => (
             <BlogConnection frontmatter={edge.node.frontmatter} />
           ))}
         </>
