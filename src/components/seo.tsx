@@ -8,12 +8,13 @@ type Meta = {
 }
 
 type Props = {
-  title: string
+  title?: string | null
   description?: string
   lang?: string
 }
 
 const SEO: React.FC<Props> = ({ description, title }) => {
+  const metaTitle = title ?? "Kristian Sakarisson"
   const metaDescription = description ?? "Kristian's site"
 
   const metaValues: Meta[] = useMemo(
@@ -24,7 +25,7 @@ const SEO: React.FC<Props> = ({ description, title }) => {
       },
       {
         property: `og:title`,
-        content: title,
+        content: metaTitle,
       },
       {
         property: `og:description`,
@@ -44,14 +45,14 @@ const SEO: React.FC<Props> = ({ description, title }) => {
       },
       {
         name: `twitter:title`,
-        content: title,
+        content: metaTitle,
       },
       {
         name: `twitter:description`,
         content: metaDescription,
       },
     ],
-    [metaDescription, title]
+    [metaDescription, metaTitle]
   )
 
   return (
@@ -59,8 +60,7 @@ const SEO: React.FC<Props> = ({ description, title }) => {
       htmlAttributes={{
         lang: "en",
       }}
-      title={title}
-      titleTemplate={`%s | ${title}`}
+      title={metaTitle}
       meta={metaValues}
     />
   )

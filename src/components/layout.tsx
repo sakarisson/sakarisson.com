@@ -76,7 +76,7 @@ const Layout: React.FC<Props> = ({ children }) => {
   const data = useStaticQuery<QueryData>(query)
   return (
     <Root>
-      <SEO title={data.site.siteMetadata.title ?? "Sakarisson.com"} />
+      <SEO title={data.site.siteMetadata.title} />
       <Content>
         <GlobalStyle />
         <Header />
