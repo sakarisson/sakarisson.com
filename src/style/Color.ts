@@ -1,9 +1,9 @@
 enum Color {
   TEXT_PRIMARY = "rgba(0, 0, 0, 0.88);",
   TEXT_SECONDARY = "rgb(125, 125, 125)",
-  TEXT_HIGHLIGHT = "rgb(43, 188, 138)",
+  TEXT_HIGHLIGHT = "#00b8a9",
 
-  BACKGROUND = "rgb(253, 246, 227)",
+  BACKGROUND = "#f8f3d4",
 }
 
 export default Color
