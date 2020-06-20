@@ -31,6 +31,7 @@
     "@types/react-helmet": "^5.0.15",
     "@types/rehype-react": "^4.0.0",
     "@types/styled-components": "^5.1.0",
+    "eslint": "7.2.0",
     "prettier": "^2.0.5",
     "typescript": "^3.9.5"
   },
