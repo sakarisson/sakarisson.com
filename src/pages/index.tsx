@@ -1,5 +1,5 @@
-import { graphql } from "gatsby"
-import Home from "../components/Home"
+import { graphql } from 'gatsby';
+import Home from '../components/Home';
 
 export const pageQuery = graphql`
   query {
@@ -18,6 +18,6 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
 
-export default Home
+export default Home;

@@ -1,17 +1,17 @@
-import React from "react"
-import styled, { createGlobalStyle } from "styled-components"
-import { useStaticQuery, graphql } from "gatsby"
-import { Helmet } from "react-helmet"
+import React from 'react';
+import styled, { createGlobalStyle } from 'styled-components';
+import { useStaticQuery, graphql } from 'gatsby';
+import { Helmet } from 'react-helmet';
 
-import Header from "./header"
-import SEO from "./seo"
-import * as Typography from "./Typography"
-import Color from "../style/Color"
-import { SiteSiteMetadata } from "../generated/graphql"
+import Header from './header';
+import SEO from './seo';
+import * as Typography from './Typography';
+import Color from '../style/Color';
+import { SiteSiteMetadata } from '../generated/graphql';
 
 enum GridArea {
-  CONTENT = "CONTENT",
-  FOOTER = "FOOTER",
+  CONTENT = 'CONTENT',
+  FOOTER = 'FOOTER',
 }
 
 const GlobalStyle = createGlobalStyle`
@@ -22,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
     background-color: ${Color.BACKGROUND};
   }
-`
+`;
 
 const Root = styled.div`
   padding: 16px;
@@ -41,27 +41,27 @@ const Root = styled.div`
   @media only screen and (max-width: 42em) {
     grid-template-columns: 0 100% 0;
   }
-`
+`;
 
 const Content = styled.div`
   grid-area: ${GridArea.CONTENT};
   padding-bottom: 3em;
-`
+`;
 
 const Footer = styled.footer`
   grid-area: ${GridArea.FOOTER};
   text-align: center;
-`
+`;
 
 type Props = {
-  children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
 type QueryData = {
   site: {
-    siteMetadata: SiteSiteMetadata
-  }
-}
+    siteMetadata: SiteSiteMetadata;
+  };
+};
 
 const query = graphql`
   query SiteMeta {
@@ -71,10 +71,10 @@ const query = graphql`
       }
     }
   }
-`
+`;
 
 const Layout: React.FC<Props> = ({ children }) => {
-  const data = useStaticQuery<QueryData>(query)
+  const data = useStaticQuery<QueryData>(query);
   return (
     <Root>
       <Helmet>
@@ -91,19 +91,18 @@ const Layout: React.FC<Props> = ({ children }) => {
       </Content>
       <Footer>
         <Typography.Small>
-          © {new Date().getFullYear()}, Built with
-          {` `}
+          © {new Date().getFullYear()}, Built with{' '}
           <Typography.ExternalLink href="https://www.gatsbyjs.org">
             Gatsby
           </Typography.ExternalLink>
-          {`, hosted on `}
+          {', hosted on '}
           <Typography.ExternalLink href="https://www.now.sh">
             now
           </Typography.ExternalLink>
         </Typography.Small>
       </Footer>
     </Root>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
