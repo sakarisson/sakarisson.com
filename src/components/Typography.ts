@@ -10,6 +10,7 @@ export const Title = styled.h1<{ hasMargin?: boolean }>`
   margin: ${({ hasMargin }) => (hasMargin ? "24px 0px 12px" : "auto")};
   font-family: ${HEADING_FONT};
   font-size: 28px;
+  line-height: 42px;
   font-weight: 700;
 `
 
@@ -30,9 +31,9 @@ export const Subheading = styled.h3`
 export const Body = styled.p`
   color: ${Color.TEXT_PRIMARY};
   font-family: ${BODY_FONT};
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 28px;
 `
 
 export const Small = styled.p`

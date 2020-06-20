@@ -1,6 +1,7 @@
 import React from "react"
 import styled, { createGlobalStyle } from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
+import { Helmet } from "react-helmet"
 
 import Header from "./header"
 import SEO from "./seo"
@@ -76,6 +77,12 @@ const Layout: React.FC<Props> = ({ children }) => {
   const data = useStaticQuery<QueryData>(query)
   return (
     <Root>
+      <Helmet>
+        <link
+          href="https://fonts.googleapis.com/css?family=Roboto+Mono"
+          rel="stylesheet"
+        />
+      </Helmet>
       <SEO title={data.site.siteMetadata.title} />
       <Content>
         <GlobalStyle />
