@@ -1,21 +1,21 @@
-import React from "react"
-import styled from "styled-components"
-import { graphql, useStaticQuery } from "gatsby"
+import React from 'react';
+import styled from 'styled-components';
+import { graphql, useStaticQuery } from 'gatsby';
 
-import Layout from "../layout"
-import * as Typography from "../Typography"
-import BlogConnection from "./BlogConnection"
-import { MarkdownRemarkConnection } from "../../generated/graphql"
+import Layout from '../layout';
+import * as Typography from '../Typography';
+import BlogConnection from './BlogConnection';
+import { MarkdownRemarkConnection } from '../../generated/graphql';
 
 const Heading = styled(Typography.Title).attrs(() => ({
   hasMargin: true,
-}))``
+}))``;
 
-const Body = styled(Typography.Body)``
+const Body = styled(Typography.Body)``;
 
 type QueryData = {
-  allMarkdownRemark: MarkdownRemarkConnection
-}
+  allMarkdownRemark: MarkdownRemarkConnection;
+};
 
 const query = graphql`
   query {
@@ -34,13 +34,13 @@ const query = graphql`
       }
     }
   }
-`
+`;
 
 const Home: React.FC = () => {
-  const data = useStaticQuery<QueryData>(query)
-  const blogEdges = data.allMarkdownRemark.edges
+  const data = useStaticQuery<QueryData>(query);
+  const blogEdges = data.allMarkdownRemark.edges;
   // const hasBlogs = blogEdges.length > 0
-  const hasBlogs = false
+  const hasBlogs = false;
   return (
     <Layout>
       <Heading>About me</Heading>
@@ -49,17 +49,17 @@ const Home: React.FC = () => {
         Finland.
       </Body>
       <Body>
-        I am currently working at{" "}
+        I am currently working at{' '}
         <Typography.ExternalLink href="https://wolt.com/">
           Wolt
-        </Typography.ExternalLink>{" "}
+        </Typography.ExternalLink>{' '}
         where I develop frontend solutions using modern TypeScript.
       </Body>
       <Body>
         I am a huge fan of React and its ecosystem and I like to explore and
-        learn new technologies. In the past few years I've been specializing in
-        React Native, where I am especially interested in creating beautiful and
-        performant interactions and animations.
+        learn new technologies. In the past few years I have been specializing
+        in React Native, where I am especially interested in creating beautiful
+        and performant interactions and animations.
       </Body>
       <Body>I have also been into powerlifting since 2011.</Body>
       <Body>
@@ -76,7 +76,7 @@ const Home: React.FC = () => {
       )}
       <Heading>Internet</Heading>
       <Body>
-        If you are interested in some of my code, feel free to check out my{" "}
+        If you are interested in some of my code, feel free to check out my{' '}
         <Typography.ExternalLink href="https://github.com/Sakarisson/">
           GitHub profile
         </Typography.ExternalLink>
@@ -84,25 +84,25 @@ const Home: React.FC = () => {
       </Body>
       <Body>
         To see a wall of basically nothing but retweets, go ahead and follow me
-        on{" "}
+        on{' '}
         <Typography.ExternalLink href="https://twitter.com/ksakarisson">
           Twitter
         </Typography.ExternalLink>
         .
       </Body>
       <Body>
-        If you would like to connect professionally, connect with me on{" "}
+        If you would like to connect professionally, connect with me on{' '}
         <Typography.ExternalLink href="https://www.linkedin.com/in/kristiansakarisson/">
           LinkedIn
-        </Typography.ExternalLink>{" "}
-        or just{" "}
+        </Typography.ExternalLink>{' '}
+        or just{' '}
         <Typography.ExternalLink href="mailto: kristian@sakarisson.com">
           email me
         </Typography.ExternalLink>
         .
       </Body>
     </Layout>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

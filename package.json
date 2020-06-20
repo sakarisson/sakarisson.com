@@ -55,7 +55,8 @@
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "tsc": "tsc --noEmit --skipLibCheck",
-    "codegen": "graphql-codegen --config codegen.yml"
+    "codegen": "graphql-codegen --config codegen.yml",
+    "lint": "eslint ./src --ext .ts,tsx"
   },
   "repository": {
     "type": "git",

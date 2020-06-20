@@ -1,5 +1,5 @@
-import React, { useMemo } from "react"
-import { Helmet } from "react-helmet"
+import React, { useMemo } from 'react';
+import { Helmet } from 'react-helmet';
 
 type Meta = {
   name?: string
@@ -14,56 +14,56 @@ type Props = {
 }
 
 const SEO: React.FC<Props> = ({ description, title }) => {
-  const metaTitle = title ?? "Kristian Sakarisson"
-  const metaDescription = description ?? "Kristian's site"
+  const metaTitle = title ?? 'Kristian Sakarisson';
+  const metaDescription = description ?? "Kristian's site";
 
   const metaValues: Meta[] = useMemo(
     () => [
       {
-        name: `description`,
+        name: 'description',
         content: metaDescription,
       },
       {
-        property: `og:title`,
+        property: 'og:title',
         content: metaTitle,
       },
       {
-        property: `og:description`,
+        property: 'og:description',
         content: metaDescription,
       },
       {
-        property: `og:type`,
-        content: `website`,
+        property: 'og:type',
+        content: 'website',
       },
       {
-        name: `twitter:card`,
-        content: `summary`,
+        name: 'twitter:card',
+        content: 'summary',
       },
       {
-        name: `twitter:creator`,
-        content: "ksakarisson",
+        name: 'twitter:creator',
+        content: 'ksakarisson',
       },
       {
-        name: `twitter:title`,
+        name: 'twitter:title',
         content: metaTitle,
       },
       {
-        name: `twitter:description`,
+        name: 'twitter:description',
         content: metaDescription,
       },
     ],
-    [metaDescription, metaTitle]
-  )
+    [metaDescription, metaTitle],
+  );
 
   return (
     <Helmet
       htmlAttributes={{
-        lang: "en",
+        lang: 'en',
       }}
       title={metaTitle}
       meta={metaValues}
     />
-  )
-}
+  );
+};
 
-export default SEO
+export default SEO;
