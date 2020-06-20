@@ -3,7 +3,7 @@ module.exports = {
     browser: true,
     es2020: true,
   },
-  extends: ['plugin:react/recommended', 'airbnb'],
+  extends: ['plugin:react/recommended', 'airbnb', 'prettier'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -12,7 +12,7 @@ module.exports = {
     ecmaVersion: 11,
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint'],
+  plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
     'import/extensions': 'off',
     'import/no-unresolved': 'off',
@@ -20,5 +20,7 @@ module.exports = {
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
     'react/prop-types': 'off',
+    'prettier/prettier': 'error',
+    'react/jsx-one-expression-per-line': 'off',
   },
 };

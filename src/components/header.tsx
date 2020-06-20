@@ -69,8 +69,8 @@ const query = graphql`
 `;
 
 type QueryData = {
-  portrait: File
-}
+  portrait: File;
+};
 
 const Header = () => {
   const data = useStaticQuery<QueryData>(query);

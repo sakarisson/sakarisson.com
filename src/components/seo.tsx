@@ -2,16 +2,16 @@ import React, { useMemo } from 'react';
 import { Helmet } from 'react-helmet';
 
 type Meta = {
-  name?: string
-  property?: string
-  content: string
-}
+  name?: string;
+  property?: string;
+  content: string;
+};
 
 type Props = {
-  title?: string | null
-  description?: string
-  lang?: string
-}
+  title?: string | null;
+  description?: string;
+  lang?: string;
+};
 
 const SEO: React.FC<Props> = ({ description, title }) => {
   const metaTitle = title ?? 'Kristian Sakarisson';

@@ -19,8 +19,8 @@ const DateContainer = styled(Typography.Body)`
 const formatDate = (date: string) => format(new Date(date), 'dd MMM yyyy');
 
 type Props = {
-  frontmatter?: MarkdownRemarkFrontmatter | null
-}
+  frontmatter?: MarkdownRemarkFrontmatter | null;
+};
 
 const BlogConnection: React.FC<Props> = ({ frontmatter }) => {
   if (!frontmatter?.title || !frontmatter?.path || !frontmatter?.date) {

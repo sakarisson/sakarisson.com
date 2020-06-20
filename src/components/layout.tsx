@@ -54,14 +54,14 @@ const Footer = styled.footer`
 `;
 
 type Props = {
-  children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
 type QueryData = {
   site: {
-    siteMetadata: SiteSiteMetadata
-  }
-}
+    siteMetadata: SiteSiteMetadata;
+  };
+};
 
 const query = graphql`
   query SiteMeta {
@@ -91,11 +91,7 @@ const Layout: React.FC<Props> = ({ children }) => {
       </Content>
       <Footer>
         <Typography.Small>
-          ©
-          {' '}
-          {new Date().getFullYear()}
-          , Built with
-          {' '}
+          © {new Date().getFullYear()}, Built with{' '}
           <Typography.ExternalLink href="https://www.gatsbyjs.org">
             Gatsby
           </Typography.ExternalLink>
