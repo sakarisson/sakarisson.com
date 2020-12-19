@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'gatsby';
+import Link from 'next/link';
 import Color from '../style/Color';
 
 const HEADING_FONT = '"Roboto Mono", monospace';
