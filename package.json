@@ -16,6 +16,7 @@
     "gatsby-source-filesystem": "^2.3.12",
     "gatsby-transformer-remark": "^2.8.17",
     "gatsby-transformer-sharp": "^2.5.5",
+    "next": "^10.0.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
@@ -49,16 +50,19 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
+    "gatsby:build": "gatsby build",
+    "gatsby:develop": "gatsby develop",
+    "gatsby:start": "npm run gatsby:develop",
+    "gatsby:serve": "gatsby serve",
+    "gatsby:clean": "gatsby clean",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
     "test": "yarn tsc & yarn lint",
     "tsc": "tsc --noEmit --skipLibCheck",
     "codegen": "graphql-codegen --config codegen.yml",
-    "lint": "eslint ./src --ext .ts,tsx"
+    "lint": "eslint ./src --ext .ts,tsx",
+    "start": "next start",
+    "build": "next build",
+    "dev": "next dev"
   },
   "repository": {
     "type": "git",
