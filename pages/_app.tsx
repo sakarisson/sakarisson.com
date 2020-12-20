@@ -6,6 +6,9 @@ import Color from '../src/style/Color';
 import * as Typography from '../src/components/Typography';
 import Header from '../src/components/header';
 
+const META_TITLE = 'Kristian Sakarisson';
+const META_DESCRIPTION = "Kristian's site";
+
 enum GridArea {
   CONTENT = 'CONTENT',
   FOOTER = 'FOOTER',
@@ -54,7 +57,15 @@ function MyApp({ Component, pageProps: { children } }: AppProps) {
   return (
     <Root>
       <Head>
-        <title>Sakarisson.com</title>
+        <title>{META_TITLE}</title>
+        <meta name="description" content={META_DESCRIPTION} />
+        <meta property="og:title" content={META_TITLE} />
+        <meta property="og:description" content={META_DESCRIPTION} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:creator" content="ksakarisson" />
+        <meta name="twitter:title" content={META_TITLE} />
+        <meta name="twitter:description" content={META_DESCRIPTION} />
       </Head>
       <Content>
         <GlobalStyle />
