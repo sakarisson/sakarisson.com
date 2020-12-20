@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { AppProps } from 'next/app';
+import Head from 'next/head';
 import Color from '../src/style/Color';
 import * as Typography from '../src/components/Typography';
 import Header from '../src/components/header';
@@ -49,14 +50,16 @@ const Footer = styled.footer`
   text-align: center;
 `;
 
-type Props = {
-  Component: any;
-  pageProps: { children: React.ReactNode };
-};
-
 function MyApp({ Component, pageProps: { children } }: AppProps) {
   return (
     <Root>
+      <Head>
+        <title>Sakarisson.com</title>
+        <link
+          href="https://fonts.googleapis.com/css?family=Roboto+Mono"
+          rel="stylesheet"
+        />
+      </Head>
       <Content>
         <GlobalStyle />
         <Header />
@@ -67,12 +70,12 @@ function MyApp({ Component, pageProps: { children } }: AppProps) {
       <Footer>
         <Typography.Small>
           © {new Date().getFullYear()}, Built with{' '}
-          <Typography.ExternalLink href="https://www.gatsbyjs.org">
-            Gatsby
+          <Typography.ExternalLink href="https://nextjs.org/">
+            Next.js
           </Typography.ExternalLink>
           {', hosted on '}
-          <Typography.ExternalLink href="https://www.now.sh">
-            now
+          <Typography.ExternalLink href="https://vercel.com/">
+            Vercel
           </Typography.ExternalLink>
         </Typography.Small>
       </Footer>
