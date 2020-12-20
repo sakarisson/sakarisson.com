@@ -55,10 +55,6 @@ function MyApp({ Component, pageProps: { children } }: AppProps) {
     <Root>
       <Head>
         <title>Sakarisson.com</title>
-        <link
-          href="https://fonts.googleapis.com/css?family=Roboto+Mono"
-          rel="stylesheet"
-        />
       </Head>
       <Content>
         <GlobalStyle />
