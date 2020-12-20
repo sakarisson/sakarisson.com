@@ -7,4 +7,4 @@
   My personal website
 </h1>
 
-Kristian Sakarisson's website, built with Gatsby.
+Kristian Sakarisson's website, built with Next.js.

@@ -1,9 +1,7 @@
 import React from 'react';
-import { Link, graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
-import Img, { FluidObject } from 'gatsby-image';
 
-import { File } from '../generated/graphql';
+import Link from 'next/link';
 import * as Typography from './Typography';
 import Color from '../style/Color';
 
@@ -50,36 +48,10 @@ const LeftContainer = styled.div`
   }
 `;
 
-const RoundImage = styled(Img)`
-  width: 350px;
-  height: 350px;
-  border-radius: 50%;
-`;
-
-const query = graphql`
-  query {
-    portrait: file(relativePath: { eq: "me_portrait.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 350) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`;
-
-type QueryData = {
-  portrait: File;
-};
-
 const Header = () => {
-  const data = useStaticQuery<QueryData>(query);
-
-  const fluid = data.portrait.childImageSharp?.fluid as FluidObject;
-
   return (
     <Head>
-      <StyledLink to="/">
+      <StyledLink href="/">
         <Container>
           <LeftContainer>
             <div>
@@ -87,7 +59,6 @@ const Header = () => {
               <Subtitle>software engineer in Helsinki</Subtitle>
             </div>
           </LeftContainer>
-          <RoundImage fluid={fluid} />
         </Container>
       </StyledLink>
     </Head>

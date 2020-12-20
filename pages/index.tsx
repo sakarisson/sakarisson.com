@@ -1,11 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { graphql, useStaticQuery } from 'gatsby';
 
-import Layout from '../layout';
-import * as Typography from '../Typography';
-import BlogConnection from './BlogConnection';
-import { MarkdownRemarkConnection } from '../../generated/graphql';
+import * as Typography from '../src/components/Typography';
 
 const Heading = styled(Typography.Title).attrs(() => ({
   hasMargin: true,
@@ -13,36 +9,9 @@ const Heading = styled(Typography.Title).attrs(() => ({
 
 const Body = styled(Typography.Body)``;
 
-type QueryData = {
-  allMarkdownRemark: MarkdownRemarkConnection;
-};
-
-const query = graphql`
-  query {
-    allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
-      limit: 10
-    ) {
-      edges {
-        node {
-          frontmatter {
-            title
-            date
-            path
-          }
-        }
-      }
-    }
-  }
-`;
-
-const Home: React.FC = () => {
-  const data = useStaticQuery<QueryData>(query);
-  const blogEdges = data.allMarkdownRemark.edges;
-  // const hasBlogs = blogEdges.length > 0
-  const hasBlogs = false;
+const Home = () => {
   return (
-    <Layout>
+    <div>
       <Heading>About me</Heading>
       <Body>
         Hi, my name is Kristian. I am a software engineer living in Helsinki,
@@ -66,14 +35,6 @@ const Home: React.FC = () => {
         In the past I have worked as a GIS consultant and a web consultant, and
         I have always had a special place in my heart for all things JavaScript.
       </Body>
-      {hasBlogs && (
-        <>
-          <Heading>Writing</Heading>
-          {blogEdges.map((edge) => (
-            <BlogConnection frontmatter={edge.node.frontmatter} />
-          ))}
-        </>
-      )}
       <Heading>Internet</Heading>
       <Body>
         If you are interested in some of my code, feel free to check out my{' '}
@@ -101,7 +62,7 @@ const Home: React.FC = () => {
         </Typography.ExternalLink>
         .
       </Body>
-    </Layout>
+    </div>
   );
 };
 
