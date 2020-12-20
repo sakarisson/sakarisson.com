@@ -58,6 +58,7 @@ function MyApp({ Component, pageProps: { children } }: AppProps) {
     <Root>
       <Head>
         <title>{META_TITLE}</title>
+        <link rel="shortcut icon" href="/static/favicon.ico" />
         <meta name="description" content={META_DESCRIPTION} />
         <meta property="og:title" content={META_TITLE} />
         <meta property="og:description" content={META_DESCRIPTION} />
