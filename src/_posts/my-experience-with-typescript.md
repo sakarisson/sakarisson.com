@@ -1,3 +1,7 @@
+---
+title: My experience with TypeScript
+date: 24/01/2021
+---
 # My experience with TypeScript
 
 I first programming experience was at the beginning of my university studies, back in 2012. The initial course we had was an introduction to programming in C++. As I was entirely new and inexperienced in the field of software development, my main focus at the time was to simply be able to improve my skills enough to write simple programs, such as FizzBuzz and a pythagoras calculator. At the end of the course I was proficient enough at C++ development that I was able to write the simple apps that our professor gave us as homework.
