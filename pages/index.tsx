@@ -1,7 +1,9 @@
+import { NextPage } from 'next';
 import React from 'react';
 import styled from 'styled-components';
 
 import * as Typography from '../src/components/Typography';
+import { getAllPosts } from '../src/utils/api';
 
 const Heading = styled(Typography.Title).attrs(() => ({
   hasMargin: true,
@@ -9,7 +11,17 @@ const Heading = styled(Typography.Title).attrs(() => ({
 
 const Body = styled(Typography.Body)``;
 
-const Home = () => {
+type Post = {
+  title: string;
+  date: string;
+  slug: string;
+};
+
+type Props = {
+  posts: Post[];
+};
+
+const Home: NextPage<Props> = ({ posts }) => {
   return (
     <div>
       <Heading>About me</Heading>
@@ -62,8 +74,20 @@ const Home = () => {
         </Typography.ExternalLink>
         .
       </Body>
+      {posts.map((post) => (
+        <Typography.InternalLink key={post.slug} href={`/${post.slug}`}>
+          {post.title}
+        </Typography.InternalLink>
+      ))}
     </div>
   );
 };
+
+export async function getStaticProps() {
+  const posts = getAllPosts(['title', 'date', 'slug']);
+  return {
+    props: { posts },
+  };
+}
 
 export default Home;
