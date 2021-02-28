@@ -1,7 +1,21 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import matter from 'gray-matter';
-import { Body, Subheading, Title } from '../../src/components/Typography';
+import Markdown from 'react-markdown';
+import styled from 'styled-components';
+
+import {
+  Body,
+  ExternalLink,
+  Heading,
+  Subheading,
+  Title,
+} from '../../src/components/Typography';
+
+const PaddedHeading = styled(Heading)`
+  padding-top: 32px;
+  padding-bottom: 8px;
+`;
 
 type Props = {
   postMetadata: { title: string; date: string };
@@ -12,7 +26,15 @@ const PostTemplate: NextPage<Props> = ({ postMetadata, postContent }) => (
   <div>
     <Title>{postMetadata.title}</Title>
     <Subheading>{postMetadata.date}</Subheading>
-    <Body>{postContent}</Body>
+    <Markdown
+      renderers={{
+        paragraph: Body,
+        heading: PaddedHeading,
+        link: ExternalLink,
+      }}
+    >
+      {postContent}
+    </Markdown>
   </div>
 );
 
