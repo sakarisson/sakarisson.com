@@ -1,16 +1,18 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import matter from 'gray-matter';
-import { Subheading, Title } from '../../src/components/Typography';
+import { Body, Subheading, Title } from '../../src/components/Typography';
 
 type Props = {
   postMetadata: { title: string; date: string };
+  postContent: string;
 };
 
-const PostTemplate: NextPage<Props> = ({ postMetadata }) => (
+const PostTemplate: NextPage<Props> = ({ postMetadata, postContent }) => (
   <div>
     <Title>{postMetadata.title}</Title>
     <Subheading>{postMetadata.date}</Subheading>
+    <Body>{postContent}</Body>
   </div>
 );
 
@@ -31,14 +33,18 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
 
   try {
     const rawData = await import(`../../src/_posts/${slug}.md`);
+    const formattedData = matter(rawData.default);
 
-    const postMetadata = matter(rawData.default).data;
+    const postMetadata = formattedData.data;
+    const postContent = formattedData.content;
 
     return {
-      props: { postMetadata },
+      props: { postMetadata, postContent },
     };
   } catch (error) {
-    return { props: { postMetadata: error.message } };
+    return {
+      props: { postMetadata: error.message, postContent: error.message },
+    };
   }
 };
 
