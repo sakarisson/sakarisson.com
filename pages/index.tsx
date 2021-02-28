@@ -75,7 +75,7 @@ const Home: NextPage<Props> = ({ posts }) => {
         .
       </Body>
       {posts.map((post) => (
-        <Typography.InternalLink key={post.slug} href={`/${post.slug}`}>
+        <Typography.InternalLink key={post.slug} href={`/posts/${post.slug}`}>
           {post.title}
         </Typography.InternalLink>
       ))}

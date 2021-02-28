@@ -3,13 +3,13 @@ import React from 'react';
 import matter from 'gray-matter';
 
 type Props = {
-  postContents: string;
+  postContents: { title: string; date: string };
 };
 
 const PostTemplate: NextPage<Props> = ({ postContents }) => (
   <div>
     <div>This is a post</div>
-    <div>{postContents}</div>
+    <div>{postContents.title}</div>
   </div>
 );
 
