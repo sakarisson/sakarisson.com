@@ -53,7 +53,7 @@ const Footer = styled.footer`
   text-align: center;
 `;
 
-function MyApp({ Component, pageProps: { children } }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Root>
       <Head>
@@ -72,7 +72,7 @@ function MyApp({ Component, pageProps: { children } }: AppProps) {
         <GlobalStyle />
         <Header />
         <main>
-          <Component>{children}</Component>
+          <Component {...pageProps} />
         </main>
       </Content>
       <Footer>
