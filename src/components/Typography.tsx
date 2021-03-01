@@ -16,7 +16,7 @@ export const Title = styled.h1<{ hasMargin?: boolean }>`
 `;
 
 export const Heading = styled.h2`
-  color: ${Color.TEXT_PRIMARY};
+  color: ${Color.TEXT_HIGHLIGHT};
   font-family: ${HEADING_FONT};
   font-size: 24px;
   font-weight: 700;
