@@ -53,6 +53,10 @@ const Footer = styled.footer`
   text-align: center;
 `;
 
+const SmallLink = styled(Typography.ExternalLink)`
+  font-size: 14px;
+`;
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Root>
@@ -78,13 +82,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Footer>
         <Typography.Small>
           © {new Date().getFullYear()}, Built with{' '}
-          <Typography.ExternalLink href="https://nextjs.org/">
-            Next.js
-          </Typography.ExternalLink>
+          <SmallLink href="https://nextjs.org/">Next.js</SmallLink>
           {', hosted on '}
-          <Typography.ExternalLink href="https://vercel.com/">
-            Vercel
-          </Typography.ExternalLink>
+          <SmallLink href="https://vercel.com/">Vercel</SmallLink>
         </Typography.Small>
       </Footer>
     </Root>
