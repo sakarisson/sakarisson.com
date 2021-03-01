@@ -74,8 +74,13 @@ const Home: NextPage<Props> = ({ posts }) => {
         </Typography.ExternalLink>
         .
       </Body>
+      <Heading>Writing</Heading>
       {posts.map((post) => (
-        <Typography.InternalLink key={post.slug} href={`/posts/${post.slug}`}>
+        <Typography.InternalLink
+          key={post.slug}
+          href={`/posts/${post.slug}`}
+          passHref
+        >
           {post.title}
         </Typography.InternalLink>
       ))}

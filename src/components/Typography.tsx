@@ -1,3 +1,4 @@
+import React, { ComponentProps } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import Color from '../style/Color';
@@ -46,12 +47,19 @@ export const Small = styled.p`
 
 export const ExternalLink = styled.a`
   color: ${Color.TEXT_HIGHLIGHT};
-`;
-
-export const InternalLink = styled(Link)`
-  color: ${Color.TEXT_HIGHLIGHT};
   font-family: ${BODY_FONT};
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 400;
   line-height: 28px;
 `;
+
+type InternalLinkProps = ComponentProps<typeof Link>;
+
+export const InternalLink: React.FC<InternalLinkProps> = (props) => {
+  const { children, ...restProps } = props;
+  return (
+    <Link {...restProps}>
+      <ExternalLink>{children}</ExternalLink>
+    </Link>
+  );
+};

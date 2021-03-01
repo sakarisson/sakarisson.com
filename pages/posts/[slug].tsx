@@ -13,8 +13,12 @@ import {
 } from '../../src/components/Typography';
 
 const PaddedHeading = styled(Heading)`
-  padding-top: 32px;
-  padding-bottom: 8px;
+  padding-top: 2em;
+  padding-bottom: 0.5em;
+`;
+
+const TitleContainer = styled.div`
+  padding-bottom: 1em;
 `;
 
 type Props = {
@@ -24,8 +28,10 @@ type Props = {
 
 const PostTemplate: NextPage<Props> = ({ postMetadata, postContent }) => (
   <div>
-    <Title>{postMetadata.title}</Title>
-    <Subheading>{postMetadata.date}</Subheading>
+    <TitleContainer>
+      <Title>{postMetadata.title}</Title>
+      <Subheading>{postMetadata.date}</Subheading>
+    </TitleContainer>
     <Markdown
       renderers={{
         paragraph: Body,
