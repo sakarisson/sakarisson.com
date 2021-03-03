@@ -1,13 +1,10 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { AppProps } from 'next/app';
-import Head from 'next/head';
 import Color from '../src/style/Color';
 import * as Typography from '../src/components/Typography';
 import Header from '../src/components/header';
-
-const META_TITLE = 'Kristian Sakarisson';
-const META_DESCRIPTION = "Kristian's site";
+import SEO from '../src/components/SEO';
 
 enum GridArea {
   CONTENT = 'CONTENT',
@@ -60,18 +57,7 @@ const SmallLink = styled(Typography.ExternalLink)`
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Root>
-      <Head>
-        <title>{META_TITLE}</title>
-        <link rel="shortcut icon" href="/static/favicon.ico" />
-        <meta name="description" content={META_DESCRIPTION} />
-        <meta property="og:title" content={META_TITLE} />
-        <meta property="og:description" content={META_DESCRIPTION} />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:creator" content="ksakarisson" />
-        <meta name="twitter:title" content={META_TITLE} />
-        <meta name="twitter:description" content={META_DESCRIPTION} />
-      </Head>
+      <SEO />
       <Content>
         <GlobalStyle />
         <Header />
