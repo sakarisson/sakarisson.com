@@ -15,15 +15,19 @@ const SEO: React.FC<Props> = ({
 }) => (
   <Head>
     <title>{META_TITLE}</title>
-    <link rel="shortcut icon" href="/static/favicon.ico" />
-    <meta name="description" content={description} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:creator" content="ksakarisson" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
+    <link rel="shortcut icon" href="/static/favicon.ico" key="icon" />
+    <meta name="description" content={description} key="description" />
+    <meta property="og:title" content={title} key="ogTitle" />
+    <meta property="og:description" content={description} key="ogDescription" />
+    <meta property="og:type" content="website" key="ogType" />
+    <meta name="twitter:card" content="summary" key="twitterCard" />
+    <meta name="twitter:creator" content="ksakarisson" key="twitterCreator" />
+    <meta name="twitter:title" content={title} key="twitterTitle" />
+    <meta
+      name="twitter:description"
+      content={description}
+      key="twitterDescription"
+    />
   </Head>
 );
 

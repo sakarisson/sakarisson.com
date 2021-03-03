@@ -17,11 +17,17 @@ type Props = {
   title: string;
   date: string;
   content: string;
+  description: string;
 };
 
-const PostTemplate: NextPage<Props> = ({ title, date, content }) => (
+const PostTemplate: NextPage<Props> = ({
+  title,
+  date,
+  content,
+  description,
+}) => (
   <>
-    <SEO title={title} />
+    <SEO title={title} description={description} />
     <TitleContainer>
       <Title>{title}</Title>
       <Small>{date}</Small>
@@ -48,13 +54,18 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const rawData = await import(`../../src/_posts/${slug}.md`);
   const formattedData = matter(rawData.default);
 
-  const { title, date } = formattedData.data as { title: string; date: Date };
+  const { title, date, description } = formattedData.data as {
+    title: string;
+    date: Date;
+    description: string;
+  };
   const postContent = formattedData.content;
 
   return {
     props: {
       title,
       date: format(date, 'PPP'),
+      description,
       content: postContent,
     },
   };

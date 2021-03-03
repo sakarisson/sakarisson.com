@@ -4,7 +4,6 @@ import { AppProps } from 'next/app';
 import Color from '../src/style/Color';
 import * as Typography from '../src/components/Typography';
 import Header from '../src/components/header';
-import SEO from '../src/components/SEO';
 
 enum GridArea {
   CONTENT = 'CONTENT',
@@ -57,7 +56,6 @@ const SmallLink = styled(Typography.ExternalLink)`
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Root>
-      <SEO />
       <Content>
         <GlobalStyle />
         <Header />
