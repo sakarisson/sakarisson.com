@@ -11,17 +11,18 @@ const TitleContainer = styled.div`
 `;
 
 type Props = {
-  postMetadata: { title: string; date: string };
-  postContent: string;
+  title: string;
+  date: string;
+  content: string;
 };
 
-const PostTemplate: NextPage<Props> = ({ postMetadata, postContent }) => (
+const PostTemplate: NextPage<Props> = ({ title, date, content }) => (
   <div>
     <TitleContainer>
-      <Title>{postMetadata.title}</Title>
-      <Subheading>{postMetadata.date}</Subheading>
+      <Title>{title}</Title>
+      <Subheading>{date}</Subheading>
     </TitleContainer>
-    <CustomMarkdown>{postContent}</CustomMarkdown>
+    <CustomMarkdown>{content}</CustomMarkdown>
   </div>
 );
 
@@ -40,21 +41,18 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const slug = context.params?.slug;
 
-  try {
-    const rawData = await import(`../../src/_posts/${slug}.md`);
-    const formattedData = matter(rawData.default);
+  const rawData = await import(`../../src/_posts/${slug}.md`);
+  const formattedData = matter(rawData.default);
 
-    const postMetadata = formattedData.data;
-    const postContent = formattedData.content;
+  const postMetadata = formattedData.data as Omit<Props, 'content'>;
+  const postContent = formattedData.content;
 
-    return {
-      props: { postMetadata, postContent },
-    };
-  } catch (error) {
-    return {
-      props: { postMetadata: error.message, postContent: error.message },
-    };
-  }
+  return {
+    props: {
+      ...postMetadata,
+      content: postContent,
+    },
+  };
 };
 
 export default PostTemplate;
