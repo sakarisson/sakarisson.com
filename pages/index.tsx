@@ -7,6 +7,7 @@ import aboutText from '../src/text/Home.md';
 import CustomMarkdown from '../src/components/CustomMarkdown';
 import * as Typography from '../src/components/Typography';
 import { getAllPosts } from '../src/utils/api';
+import SEO from '../src/components/SEO';
 
 const Heading = styled(Typography.Heading)`
   padding-top: 1em;
@@ -25,7 +26,8 @@ type Props = {
 
 const Home: NextPage<Props> = ({ posts }) => {
   return (
-    <div>
+    <>
+      <SEO />
       <CustomMarkdown>{aboutText}</CustomMarkdown>
       <Heading>Writing</Heading>
       {posts.map((post) => (
@@ -37,7 +39,7 @@ const Home: NextPage<Props> = ({ posts }) => {
           {post.title}
         </Typography.InternalLink>
       ))}
-    </div>
+    </>
   );
 };
 

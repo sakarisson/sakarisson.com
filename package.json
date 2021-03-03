@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "author": "Kristian Sakarisson <kristian@sakarisson.com>",
   "dependencies": {
-    "date-fns": "^2.14.0",
+    "date-fns": "^2.18.0",
     "gray-matter": "^4.0.2",
     "next": "^10.0.3",
     "react": "^17.0.1",

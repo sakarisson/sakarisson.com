@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import SEO from '../src/components/SEO';
 
 import * as Typography from '../src/components/Typography';
 
@@ -14,9 +15,10 @@ const Blame = styled.span`
 
 const NotFoundPage = () => (
   <>
+    <SEO title="Page not found" />
     <Heading>NOT FOUND</Heading>
     <Body>
-      You just hit a route that does not exist. This is your fault.
+      You just hit a route that does not exist. This is your fault.{' '}
       <Blame>Stop it.</Blame>
     </Body>
   </>
