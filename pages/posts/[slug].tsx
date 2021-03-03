@@ -2,6 +2,7 @@ import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import matter from 'gray-matter';
 import styled from 'styled-components';
+import fs from 'fs';
 
 import { Subheading, Title } from '../../src/components/Typography';
 import CustomMarkdown from '../../src/components/CustomMarkdown';
@@ -27,13 +28,13 @@ const PostTemplate: NextPage<Props> = ({ title, date, content }) => (
 );
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = [
-    {
-      params: {
-        slug: 'my-experience-with-typescript',
-      },
-    },
-  ];
+  const POST_DIRECTORY = 'src/_posts';
+
+  const files = fs.readdirSync(POST_DIRECTORY);
+
+  const paths = files.map((file) => ({
+    params: { slug: file.replace('.md', '') },
+  }));
 
   return { paths, fallback: false };
 };
