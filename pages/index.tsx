@@ -5,9 +5,7 @@ import styled from 'styled-components';
 import * as Typography from '../src/components/Typography';
 import { getAllPosts } from '../src/utils/api';
 
-const Heading = styled(Typography.Title).attrs(() => ({
-  hasMargin: true,
-}))``;
+const Heading = styled(Typography.Title)``;
 
 const Body = styled(Typography.Body)``;
 

@@ -6,9 +6,8 @@ import Color from '../style/Color';
 const HEADING_FONT = '"Roboto Mono", monospace';
 const BODY_FONT = '"Roboto Mono", monospace';
 
-export const Title = styled.h1<{ hasMargin?: boolean }>`
+export const Title = styled.h1`
   color: ${Color.TEXT_HIGHLIGHT};
-  margin: ${({ hasMargin }) => (hasMargin ? '24px 0px 12px' : 'auto')};
   font-family: ${HEADING_FONT};
   font-size: 28px;
   line-height: 42px;

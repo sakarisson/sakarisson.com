@@ -13,11 +13,15 @@ import {
 } from '../../src/components/Typography';
 
 const PaddedHeading = styled(Heading)`
-  padding-top: 2em;
-  padding-bottom: 0.5em;
+  padding-top: 1em;
+  padding-bottom: 1em;
 `;
 
 const TitleContainer = styled.div`
+  padding-bottom: 1em;
+`;
+
+const PaddedBody = styled(Body)`
   padding-bottom: 1em;
 `;
 
@@ -34,7 +38,7 @@ const PostTemplate: NextPage<Props> = ({ postMetadata, postContent }) => (
     </TitleContainer>
     <Markdown
       renderers={{
-        paragraph: Body,
+        paragraph: PaddedBody,
         heading: PaddedHeading,
         link: ExternalLink,
       }}
