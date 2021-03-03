@@ -7,6 +7,7 @@ import { format } from 'date-fns';
 
 import { Small, Title } from '../../src/components/Typography';
 import CustomMarkdown from '../../src/components/CustomMarkdown';
+import SEO from '../../src/components/SEO';
 
 const TitleContainer = styled.div`
   padding-bottom: 1em;
@@ -19,13 +20,14 @@ type Props = {
 };
 
 const PostTemplate: NextPage<Props> = ({ title, date, content }) => (
-  <div>
+  <>
+    <SEO title={title} />
     <TitleContainer>
       <Title>{title}</Title>
       <Small>{date}</Small>
     </TitleContainer>
     <CustomMarkdown>{content}</CustomMarkdown>
-  </div>
+  </>
 );
 
 export const getStaticPaths: GetStaticPaths = async () => {
