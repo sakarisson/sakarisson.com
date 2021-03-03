@@ -3,8 +3,9 @@ import React from 'react';
 import matter from 'gray-matter';
 import styled from 'styled-components';
 import fs from 'fs';
+import { format } from 'date-fns';
 
-import { Subheading, Title } from '../../src/components/Typography';
+import { Small, Title } from '../../src/components/Typography';
 import CustomMarkdown from '../../src/components/CustomMarkdown';
 
 const TitleContainer = styled.div`
@@ -21,7 +22,7 @@ const PostTemplate: NextPage<Props> = ({ title, date, content }) => (
   <div>
     <TitleContainer>
       <Title>{title}</Title>
-      <Subheading>{date}</Subheading>
+      <Small>{date}</Small>
     </TitleContainer>
     <CustomMarkdown>{content}</CustomMarkdown>
   </div>
@@ -45,12 +46,13 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const rawData = await import(`../../src/_posts/${slug}.md`);
   const formattedData = matter(rawData.default);
 
-  const postMetadata = formattedData.data as Omit<Props, 'content'>;
+  const { title, date } = formattedData.data as { title: string; date: Date };
   const postContent = formattedData.content;
 
   return {
     props: {
-      ...postMetadata,
+      title,
+      date: format(date, 'PPP'),
       content: postContent,
     },
   };
