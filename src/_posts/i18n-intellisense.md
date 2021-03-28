@@ -11,3 +11,11 @@ Recently I was introducing some of my new colleagues to our React Native codebas
 Since there seems to be some interest for the subject, I figured I could write a quick blog post about it.
 
 ## The base i18n setup
+
+There exist many different libraries for i18n. Some popular ones include react-intl, react-intl-universal, LinguiJS and i18next(TODO LINKS). They all have different philosophies and implementations. Some rely on translation components, and others provide hooks and higher order components that export some "translate" function.
+
+The one thing that all i18n solutions have in common is that they rely on a message key. The key is essentially a unique string that references a translated message. Normally the messages are stored in a JSON file, and the key is simply the key in the localized JSON file. In our frontend apps we can then invoke our translate function with a specific key, and it will returns a localized message.
+
+## The problem
+
+One potential problem that you might experience when working with i18n is the case where no message was found for a given key. In this case there is no good option for the user, and as developers we have to fall back to handling the error as best we can. Some apps crash, but more commonly they just fall back to simply showing the input key instead of a message. Needless to say, this leads to a bad user experience, and it is something that should be avoided.
