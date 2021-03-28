@@ -18,4 +18,10 @@ The one thing that all i18n solutions have in common is that they rely on a mess
 
 ## The problem
 
-One potential problem that you might experience when working with i18n is the case where no message was found for a given key. In this case there is no good option for the user, and as developers we have to fall back to handling the error as best we can. Some apps crash, but more commonly they just fall back to simply showing the input key instead of a message. Needless to say, this leads to a bad user experience, and it is something that should be avoided.
+One potential problem that you might experience when working with i18n is the case where no message was found for a given key. In this case there is no good option for the user, and as developers we have to fall back to handling the error as best we can. Some apps crash, but more commonly they just fall back to simply showing the input key instead of a message. Needless to say, this leads to a bad user experience, and it is something that should be avoided if possible.
+
+## The solution
+
+## Caveats
+
+I should mention that we actually have a quite customized i18n implementation in our current project, so the actual solution in your own codebase may vary. I'd love to hear if there are any problems or blockers that would prevent you from adding similar intellisense for your i18n callback. Alternatively, if it was relatively easy, I'd love to hear that as well!
