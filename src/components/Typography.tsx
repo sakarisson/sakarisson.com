@@ -1,5 +1,5 @@
 import React, { ComponentProps } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Link from 'next/link';
 import Color from '../style/Color';
 
@@ -22,18 +22,22 @@ export const Heading = styled.h2`
 `;
 
 export const Subheading = styled.h3`
-  color: ${Color.TEXT_PRIMARY};
+  color: ${Color.TEXT_HIGHLIGHT};
   font-family: ${HEADING_FONT};
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
 `;
 
-export const Body = styled.p`
+const SharedBodyStyles = css`
   color: ${Color.TEXT_PRIMARY};
   font-family: ${BODY_FONT};
   font-size: 18px;
   font-weight: 400;
   line-height: 28px;
+`;
+
+export const Body = styled.p`
+  ${SharedBodyStyles}
 `;
 
 export const Small = styled.p`
@@ -50,6 +54,16 @@ export const ExternalLink = styled.a`
   font-size: 18px;
   font-weight: 400;
   line-height: 28px;
+`;
+
+export const InlineCode = styled.code`
+  ${SharedBodyStyles}
+  background-color: ${Color.CODE_BACKGROUND};
+  border-radius: 6px;
+  overflow-wrap: break-word;
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 0px 5px;
 `;
 
 type InternalLinkProps = ComponentProps<typeof Link>;

@@ -4,6 +4,8 @@ enum Color {
   TEXT_HIGHLIGHT = '#00b8a9',
 
   BACKGROUND = '#fbfcf7',
+
+  CODE_BACKGROUND = 'rgba(0, 0, 0, 0.15)',
 }
 
 export default Color;
