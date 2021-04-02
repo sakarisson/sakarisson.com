@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import Markdown from 'react-markdown';
 import styled from 'styled-components';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 
-import { Body, InlineCode, ExternalLink, Heading } from './Typography';
+import {
+  Body,
+  InlineCode,
+  ExternalLink,
+  Heading,
+  Subheading,
+} from './Typography';
 
 const MarkdownImage = styled.img`
   max-width: 100%;
 `;
 
 const PaddedHeading = styled(Heading)`
+  padding-top: 1em;
+  padding-bottom: 1em;
+`;
+
+const PaddedSubheading = styled(Subheading)`
   padding-top: 1em;
   padding-bottom: 1em;
 `;
@@ -44,6 +55,21 @@ const Code = (element: CodeElement) => (
   </SyntaxContainer>
 );
 
+type MarkdownHeadingProps = ComponentProps<typeof PaddedHeading> & {
+  level: 2 | 3;
+};
+
+const MarkdownHeading = ({ level, ...restProps }: MarkdownHeadingProps) => {
+  const getElement = () => {
+    if (level === 3) {
+      return PaddedSubheading;
+    }
+    return PaddedHeading;
+  };
+  const Element = getElement();
+  return <Element {...restProps} />;
+};
+
 type Props = {
   children: string;
 };
@@ -55,7 +81,7 @@ const CustomMarkdown: React.FC<Props> = ({ children }) => (
         inlineCode: InlineCode,
         code: Code,
         paragraph: PaddedBody,
-        heading: PaddedHeading,
+        heading: MarkdownHeading,
         link: ExternalLink,
         image: MarkdownImage,
       }}

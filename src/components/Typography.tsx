@@ -22,9 +22,9 @@ export const Heading = styled.h2`
 `;
 
 export const Subheading = styled.h3`
-  color: ${Color.TEXT_PRIMARY};
+  color: ${Color.TEXT_HIGHLIGHT};
   font-family: ${HEADING_FONT};
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
 `;
 
