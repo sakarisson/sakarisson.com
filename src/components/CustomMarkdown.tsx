@@ -1,8 +1,9 @@
 import React from 'react';
 import Markdown from 'react-markdown';
 import styled from 'styled-components';
+import SyntaxHighlighter from 'react-syntax-highlighter';
 
-import { Body, Code, ExternalLink, Heading } from './Typography';
+import { Body, InlineCode, ExternalLink, Heading } from './Typography';
 
 const MarkdownImage = styled.img`
   max-width: 100%;
@@ -21,11 +22,28 @@ type Props = {
   children: string;
 };
 
+type CodeElement = {
+  node: {
+    value: string;
+  };
+  language: string;
+};
+
 const CustomMarkdown: React.FC<Props> = ({ children }) => (
   <div>
     <Markdown
       renderers={{
-        inlineCode: Code,
+        inlineCode: InlineCode,
+        code: (input: CodeElement) => {
+          return (
+            <SyntaxHighlighter
+              customStyle={{ fontSize: '16px', lineHeight: '18px' }}
+              language={input.language}
+            >
+              {input.node.value}
+            </SyntaxHighlighter>
+          );
+        },
         paragraph: PaddedBody,
         heading: PaddedHeading,
         link: ExternalLink,

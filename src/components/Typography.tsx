@@ -56,7 +56,7 @@ export const ExternalLink = styled.a`
   line-height: 28px;
 `;
 
-export const Code = styled.code`
+export const InlineCode = styled.code`
   ${SharedBodyStyles}
   background-color: ${Color.CODE_BACKGROUND};
   border-radius: 6px;
