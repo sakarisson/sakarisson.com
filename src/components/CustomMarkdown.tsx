@@ -18,9 +18,9 @@ const PaddedBody = styled(Body)`
   padding-bottom: 1em;
 `;
 
-type Props = {
-  children: string;
-};
+const SyntaxContainer = styled.div`
+  padding-bottom: 1em;
+`;
 
 type CodeElement = {
   node: {
@@ -29,21 +29,31 @@ type CodeElement = {
   language: string;
 };
 
+const Code = (element: CodeElement) => (
+  <SyntaxContainer>
+    <SyntaxHighlighter
+      customStyle={{
+        fontSize: '16px',
+        lineHeight: '18px',
+        borderRadius: 6,
+      }}
+      language={element.language}
+    >
+      {element.node.value}
+    </SyntaxHighlighter>
+  </SyntaxContainer>
+);
+
+type Props = {
+  children: string;
+};
+
 const CustomMarkdown: React.FC<Props> = ({ children }) => (
   <div>
     <Markdown
       renderers={{
         inlineCode: InlineCode,
-        code: (input: CodeElement) => {
-          return (
-            <SyntaxHighlighter
-              customStyle={{ fontSize: '16px', lineHeight: '18px' }}
-              language={input.language}
-            >
-              {input.node.value}
-            </SyntaxHighlighter>
-          );
-        },
+        code: Code,
         paragraph: PaddedBody,
         heading: PaddedHeading,
         link: ExternalLink,
