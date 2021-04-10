@@ -50,11 +50,8 @@ export const Small = styled.p`
 `;
 
 export const ExternalLink = styled.a`
+  ${SharedBodyStyles};
   color: ${Color.TEXT_HIGHLIGHT};
-  font-family: ${BODY_FONT};
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 28px;
 `;
 
 export const InlineCode = styled.code`
