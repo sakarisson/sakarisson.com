@@ -11,8 +11,7 @@ import { getAllPosts } from '../src/utils/api';
 import SEO from '../src/components/SEO';
 
 const Heading = styled(Typography.Heading)`
-  padding-top: 1em;
-  padding-bottom: 1em;
+  padding: 0.5em 0;
 `;
 
 type Post = {
