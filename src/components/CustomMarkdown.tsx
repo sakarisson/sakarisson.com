@@ -16,13 +16,11 @@ const MarkdownImage = styled.img`
 `;
 
 const PaddedHeading = styled(Heading)`
-  padding-top: 1em;
-  padding-bottom: 1em;
+  padding: 0.5em 0;
 `;
 
 const PaddedSubheading = styled(Subheading)`
-  padding-top: 1em;
-  padding-bottom: 1em;
+  padding: 0.5em 0;
 `;
 
 const PaddedBody = styled(Body)`

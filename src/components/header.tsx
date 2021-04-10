@@ -17,8 +17,9 @@ const Head = styled.header`
 `;
 
 const Title = styled(Typography.Title)`
-  font-size: 42px;
-  font-weight: 400;
+  font-size: 58px;
+  padding-bottom: 0.1em;
+  text-align: right;
 `;
 
 const Subtitle = styled(Typography.Body)`

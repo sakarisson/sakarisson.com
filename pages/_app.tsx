@@ -28,7 +28,7 @@ const Root = styled.div`
   bottom: 0;
   right: 0;
   display: grid;
-  grid-template-columns: 1fr 45em 1fr;
+  grid-template-columns: 1fr 50em 1fr;
   grid-template-rows: auto 5em;
   grid-template-areas:
     ". ${GridArea.CONTENT} ."
