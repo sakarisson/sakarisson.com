@@ -47,6 +47,7 @@ const Code = (element: CodeElement) => (
         borderRadius: 6,
       }}
       language={element.language}
+      wrapLongLines
     >
       {element.node.value}
     </SyntaxHighlighter>
