@@ -9,6 +9,7 @@ import {
   ExternalLink,
   Heading,
   Subheading,
+  ListItem,
 } from './Typography';
 
 const MarkdownImage = styled.img`
@@ -25,6 +26,10 @@ const PaddedSubheading = styled(Subheading)`
 
 const PaddedBody = styled(Body)`
   padding-bottom: 1em;
+`;
+
+const PaddedListItem = styled(ListItem)`
+  padding-bottom: 0.5em;
 `;
 
 const SyntaxContainer = styled.div`
@@ -83,6 +88,7 @@ const CustomMarkdown: React.FC<Props> = ({ children }) => (
         heading: MarkdownHeading,
         link: ExternalLink,
         image: MarkdownImage,
+        listItem: PaddedListItem,
       }}
     >
       {children}

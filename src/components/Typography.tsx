@@ -41,6 +41,10 @@ export const Body = styled.p`
   ${SharedBodyStyles}
 `;
 
+export const ListItem = styled.li`
+  ${SharedBodyStyles}
+`;
+
 export const Small = styled.p`
   color: ${Color.TEXT_PRIMARY};
   font-family: ${BODY_FONT};
