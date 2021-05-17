@@ -48,7 +48,7 @@ export const ListItem = styled.li`
 export const Small = styled.p`
   color: ${Color.TEXT_PRIMARY};
   font-family: ${BODY_FONT};
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 20px;
 `;
