@@ -37,7 +37,7 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "test": "yarn tsc & yarn lint",
     "tsc": "tsc --noEmit --skipLibCheck",
-    "lint": "eslint ./src --ext .ts,tsx",
+    "lint": "eslint ./src ./pages --ext .ts,tsx",
     "start": "next start",
     "build": "next build && next export",
     "dev": "next dev"
