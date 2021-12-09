@@ -23,5 +23,10 @@ module.exports = {
     'prettier/prettier': 'error',
     'react/jsx-one-expression-per-line': 'off',
     'react/jsx-props-no-spreading': 'off',
+    'react/function-component-definition': 'off',
+    'react/require-default-props': 'off',
+    'react/destructuring-assignment': 'off',
+    'no-shadow': 'off',
+    '@typescript-eslint/no-shadow': 'error',
   },
 };

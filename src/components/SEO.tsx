@@ -15,7 +15,7 @@ const SEO: React.FC<Props> = ({
 }) => (
   <Head>
     <title>{META_TITLE}</title>
-    <link rel="shortcut icon" href="/static/favicon.ico" key="icon" />
+    <link rel="icon" href="/static/favicon.ico" key="icon" />
     <meta name="description" content={description} key="description" />
     <meta property="og:title" content={title} key="ogTitle" />
     <meta property="og:description" content={description} key="ogDescription" />
