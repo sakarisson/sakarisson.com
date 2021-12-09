@@ -37,28 +37,26 @@ const sortByDateDesc = ({ date: aStr }: Post, { date: bStr }: Post) => {
   return 0;
 };
 
-const Home: NextPage<Props> = ({ posts }) => {
-  return (
-    <>
-      <SEO />
-      <CustomMarkdown>{aboutText}</CustomMarkdown>
-      <Heading>Writing</Heading>
-      <ul>
-        {[...posts].sort(sortByDateDesc).map((post) => (
-          <li key={post.slug}>
-            <Typography.InternalLink
-              key={post.slug}
-              href={`/posts/${post.slug}`}
-              passHref
-            >
-              {post.title}
-            </Typography.InternalLink>
-          </li>
-        ))}
-      </ul>
-    </>
-  );
-};
+const Home: NextPage<Props> = ({ posts }) => (
+  <>
+    <SEO />
+    <CustomMarkdown>{aboutText}</CustomMarkdown>
+    <Heading>Writing</Heading>
+    <ul>
+      {[...posts].sort(sortByDateDesc).map((post) => (
+        <li key={post.slug}>
+          <Typography.InternalLink
+            key={post.slug}
+            href={`/posts/${post.slug}`}
+            passHref
+          >
+            {post.title}
+          </Typography.InternalLink>
+        </li>
+      ))}
+    </ul>
+  </>
+);
 
 export async function getStaticProps() {
   const posts = getAllPosts(['title', 'date', 'slug']);
