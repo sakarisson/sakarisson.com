@@ -31,8 +31,8 @@ const Root = styled.div`
   grid-template-columns: 1fr 50em 1fr;
   grid-template-rows: auto 5em;
   grid-template-areas:
-    ". ${GridArea.CONTENT} ."
-    ". ${GridArea.FOOTER} .";
+    '. ${GridArea.CONTENT} .'
+    '. ${GridArea.FOOTER} .';
 
   @media only screen and (max-width: 42em) {
     grid-template-columns: 0 100% 0;
