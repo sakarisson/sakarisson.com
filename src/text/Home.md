@@ -12,7 +12,6 @@ In the past I have worked as a GIS consultant and a web consultant, and I have a
 
 In my free time I have been known to dabble in nerdy things like board games, biking and boffering.
 
-## Internet
 
 If you are interested in some of my code, feel free to check out my [GitHub profile](https://github.com/Sakarisson/).
 To see a wall of basically nothing but retweets, go ahead and follow me on [Twitter](https://twitter.com/ksakarisson).
