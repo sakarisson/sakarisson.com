@@ -65,10 +65,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Content>
       <Footer>
         <Typography.Small>
-          © {new Date().getFullYear()}, Built with{' '}
-          <SmallLink href="https://nextjs.org/">Next.js</SmallLink>
-          {', hosted on '}
-          <SmallLink href="https://vercel.com/">Vercel</SmallLink>
+          <SmallLink href="https://raw.githubusercontent.com/sakarisson/curriculum_vitae/main/CV.pdf">
+            Curriculum vitae
+          </SmallLink>
         </Typography.Small>
       </Footer>
     </Root>
