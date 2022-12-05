@@ -49,7 +49,7 @@ const Footer = styled.footer`
   text-align: center;
 `;
 
-const SmallLink = styled(Typography.ExternalLink)`
+const SmallLink = styled(Typography.Hyperlink)`
   font-size: 14px;
 `;
 

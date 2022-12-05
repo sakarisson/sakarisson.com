@@ -5,7 +5,7 @@ import Link from 'next/link';
 import * as Typography from './Typography';
 import Color from '../style/Color';
 
-const StyledLink = styled.a`
+const StyledLink = styled(Link)`
   text-decoration: none;
 `;
 
@@ -51,18 +51,16 @@ const LeftContainer = styled.div`
 
 const Header = () => (
   <Head>
-    <Link href="/" passHref>
-      <StyledLink>
-        <Container>
-          <LeftContainer>
-            <div>
-              <Title>Kristian Sakarisson</Title>
-              <Subtitle>software engineer in Helsinki</Subtitle>
-            </div>
-          </LeftContainer>
-        </Container>
-      </StyledLink>
-    </Link>
+    <StyledLink href="/">
+      <Container>
+        <LeftContainer>
+          <div>
+            <Title>Kristian Sakarisson</Title>
+            <Subtitle>software engineer in Helsinki</Subtitle>
+          </div>
+        </LeftContainer>
+      </Container>
+    </StyledLink>
   </Head>
 );
 

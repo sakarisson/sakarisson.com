@@ -45,13 +45,13 @@ const Home: NextPage<Props> = ({ posts }) => (
     <ul>
       {[...posts].sort(sortByDateDesc).map((post) => (
         <li key={post.slug}>
-          <Typography.InternalLink
+          <Typography.Hyperlink
             key={post.slug}
             href={`/posts/${post.slug}`}
             passHref
           >
             {post.title}
-          </Typography.InternalLink>
+          </Typography.Hyperlink>
         </li>
       ))}
     </ul>

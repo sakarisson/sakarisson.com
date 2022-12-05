@@ -1,4 +1,3 @@
-import React, { ComponentProps } from 'react';
 import styled, { css } from 'styled-components';
 import Link from 'next/link';
 import Color from '../style/Color';
@@ -49,11 +48,6 @@ export const Small = styled.p`
   line-height: 20px;
 `;
 
-export const ExternalLink = styled.a`
-  ${SharedBodyStyles};
-  color: ${Color.TEXT_HIGHLIGHT};
-`;
-
 export const InlineCode = styled.code`
   ${SharedBodyStyles}
   background-color: ${Color.CODE_BACKGROUND};
@@ -64,13 +58,7 @@ export const InlineCode = styled.code`
   padding: 0px 5px;
 `;
 
-type InternalLinkProps = ComponentProps<typeof Link>;
-
-export const InternalLink: React.FC<InternalLinkProps> = (props) => {
-  const { children, ...restProps } = props;
-  return (
-    <Link {...restProps}>
-      <ExternalLink>{children}</ExternalLink>
-    </Link>
-  );
-};
+export const Hyperlink = styled(Link)`
+  ${SharedBodyStyles};
+  color: ${Color.TEXT_HIGHLIGHT};
+`;

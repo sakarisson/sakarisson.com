@@ -3,13 +3,7 @@ import Markdown from 'react-markdown';
 import styled from 'styled-components';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 
-import {
-  Body,
-  InlineCode,
-  ExternalLink,
-  Heading,
-  Subheading,
-} from './Typography';
+import { Body, InlineCode, Hyperlink, Heading, Subheading } from './Typography';
 
 const MarkdownImage = styled.img`
   max-width: 100%;
@@ -81,7 +75,7 @@ const CustomMarkdown: React.FC<Props> = ({ children }) => (
         code: Code,
         paragraph: PaddedBody,
         heading: MarkdownHeading,
-        link: ExternalLink,
+        link: Hyperlink,
         image: MarkdownImage,
       }}
     >
