@@ -2,7 +2,7 @@
 
 Hey there! My name is Kristian, and I'm a software engineer living in Helsinki, Finland.
 
-I currently work as an engineering team lead at Wolt, where I focus on building and maintaining a high-performing, collaborative, and inclusive team culture. I believe that good people management is key to creating a supportive, productive, and enjoyable work environment, and I strive to foster a culture of trust, respect, and continuous learning.
+I currently work as an engineering team lead at Wolt. I believe that an engineering manager's job is to create a supportive, productive, and enjoyable work environment, and I strive to foster a culture of trust, respect, and continuous learning.
 
 In the past, I worked as a React Native developer at Wolt, where I developed and maintained the Wolt Partner app. I have also worked as a GIS consultant and a web consultant, and I have a passion for front-end development and JavaScript.
 
