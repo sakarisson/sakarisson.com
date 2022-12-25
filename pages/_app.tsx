@@ -2,12 +2,10 @@ import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { AppProps } from 'next/app';
 import Color from '../src/style/Color';
-import * as Typography from '../src/components/Typography';
 import Header from '../src/components/header';
 
 enum GridArea {
   CONTENT = 'CONTENT',
-  FOOTER = 'FOOTER',
 }
 
 const GlobalStyle = createGlobalStyle`
@@ -30,9 +28,7 @@ const Root = styled.div`
   display: grid;
   grid-template-columns: 1fr 50em 1fr;
   grid-template-rows: auto 5em;
-  grid-template-areas:
-    '. ${GridArea.CONTENT} .'
-    '. ${GridArea.FOOTER} .';
+  grid-template-areas: '. ${GridArea.CONTENT} .';
 
   @media only screen and (max-width: 42em) {
     grid-template-columns: 0 100% 0;
@@ -42,15 +38,6 @@ const Root = styled.div`
 const Content = styled.div`
   grid-area: ${GridArea.CONTENT};
   padding-bottom: 3em;
-`;
-
-const Footer = styled.footer`
-  grid-area: ${GridArea.FOOTER};
-  text-align: center;
-`;
-
-const SmallLink = styled(Typography.Hyperlink)`
-  font-size: 14px;
 `;
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -63,13 +50,6 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
         </main>
       </Content>
-      <Footer>
-        <Typography.Small>
-          <SmallLink href="https://raw.githubusercontent.com/sakarisson/curriculum_vitae/main/CV.pdf">
-            Curriculum vitae
-          </SmallLink>
-        </Typography.Small>
-      </Footer>
     </Root>
   );
 }

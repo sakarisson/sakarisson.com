@@ -9,10 +9,9 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `;
 
-const Head = styled.header`
+const Root = styled.header`
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
   padding: 5em 0em 2.5em;
 `;
 
@@ -31,10 +30,16 @@ const Subtitle = styled(Typography.Body)`
 const Container = styled.div`
   display: grid;
   grid-auto-flow: column;
-  padding: 0em 2em;
+  justify-content: center;
+
   @media only screen and (max-width: 42em) {
     grid-auto-flow: row;
   }
+`;
+
+const SmallLink = styled(Typography.Hyperlink)`
+  font-size: 14px;
+  line-height: initial;
 `;
 
 const LeftContainer = styled.div`
@@ -49,19 +54,58 @@ const LeftContainer = styled.div`
   }
 `;
 
+const LinksContainer = styled.div`
+  display: flex;
+  padding-top: 0.5em;
+
+  a:not(:last-child) {
+    padding-right: 0.5em;
+    border-right: 1px solid ${Color.TEXT_SECONDARY};
+  }
+  a:not(:first-child) {
+    padding-left: 0.5em;
+  }
+`;
+
+const links = [
+  {
+    title: 'Curriculum vitae',
+    href: 'https://raw.githubusercontent.com/sakarisson/curriculum_vitae/main/CV.pdf',
+  },
+  {
+    title: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/kristiansakarisson/',
+  },
+  {
+    title: 'GitHub',
+    href: 'https://github.com/Sakarisson/',
+  },
+  {
+    title: 'Twitter',
+    href: 'https://twitter.com/ksakarisson',
+  },
+];
+
 const Header = () => (
-  <Head>
-    <StyledLink href="/">
-      <Container>
-        <LeftContainer>
-          <div>
+  <Root>
+    <Container>
+      <LeftContainer>
+        <div>
+          <StyledLink href="/">
             <Title>Kristian Sakarisson</Title>
             <Subtitle>software engineer in Helsinki</Subtitle>
-          </div>
-        </LeftContainer>
-      </Container>
-    </StyledLink>
-  </Head>
+          </StyledLink>
+          <LinksContainer>
+            {links.map(({ title, href }) => (
+              <SmallLink href={href} key={href}>
+                {title}
+              </SmallLink>
+            ))}
+          </LinksContainer>
+        </div>
+      </LeftContainer>
+    </Container>
+  </Root>
 );
 
 export default Header;
