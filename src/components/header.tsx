@@ -38,6 +38,8 @@ const Container = styled.div`
 `;
 
 const SmallLink = styled(Typography.Hyperlink)`
+  display: flex;
+  align-items: center;
   font-size: 14px;
   line-height: initial;
 `;
