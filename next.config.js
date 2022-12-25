@@ -9,4 +9,5 @@ module.exports = {
   experimental: {
     appDir: true,
   },
+  productionBrowserSourceMaps: true,
 };
