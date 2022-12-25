@@ -69,7 +69,12 @@ const LinksContainer = styled.div`
   }
 `;
 
-const links = [
+type Link = {
+  title: string;
+  href: string;
+};
+
+const links: Array<Link> = [
   {
     title: 'Curriculum vitae',
     href: 'https://raw.githubusercontent.com/sakarisson/curriculum_vitae/main/CV.pdf',
