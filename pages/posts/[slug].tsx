@@ -13,6 +13,10 @@ const TitleContainer = styled.div`
   padding-bottom: 1em;
 `;
 
+const SmallContainer = styled.div`
+  padding-bottom: 1em;
+`;
+
 type Props = {
   title: string;
   date: string;
@@ -30,8 +34,10 @@ const PostTemplate: NextPage<Props> = ({
     <SEO title={title} description={description} />
     <TitleContainer>
       <Title>{title}</Title>
-      <Small>{date}</Small>
     </TitleContainer>
+    <SmallContainer>
+      <Small>{date}</Small>
+    </SmallContainer>
     <CustomMarkdown>{content}</CustomMarkdown>
   </>
 );
