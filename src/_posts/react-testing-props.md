@@ -82,14 +82,20 @@ With this helper the same test suite as above can be rewritten as:
 
 ```typescript
 it('handles click when enabled', () => {
-  const props = getProps({ dataTestId: 'button' });
+  const props = getProps({
+    dataTestId: 'button',
+    status: 'enabled',
+  });
   const { getByTestId } = render(<Button {...props} />);
   fireEvent.click(getByTestId('button'));
   expect(props.onClick).toHaveBeenCalled();
 });
 
 it('does not handle click when disabled', () => {
-  const props = getProps({ dataTestId: 'button' });
+  const props = getProps({
+    dataTestId: 'button',
+    status: 'disabled',
+  });
   const { getByTestId } = render(<Button {...props} />);
   fireEvent.click(getByTestId('button'));
   expect(props.onClick).not.toHaveBeenCalled();
