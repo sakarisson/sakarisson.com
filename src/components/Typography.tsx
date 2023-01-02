@@ -33,7 +33,7 @@ const SharedBodyStyles = css`
   font-family: ${BODY_FONT};
   font-size: 20px;
   font-weight: 400;
-  line-height: 30px;
+  line-height: 26px;
 `;
 
 export const Body = styled.p`
@@ -54,8 +54,7 @@ export const InlineCode = styled.code`
   border-radius: 6px;
   overflow-wrap: break-word;
   box-sizing: border-box;
-  display: inline-block;
-  padding: 0px 5px;
+  padding: 0px 2px;
 `;
 
 export const Hyperlink = styled(Link)`
