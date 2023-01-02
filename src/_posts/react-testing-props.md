@@ -6,9 +6,9 @@ description: A nifty little trick I've been using when testing React components
 
 As component testing has become more common and intuitive to React developers, it's become common practice in most teams to run unit tests against their React components using tools like [React Testing Library](https://testing-library.com/docs/react-testing-library/intro).
 
-It's a nice tool that allows you to easily instantiate React components and interact with them in a unit test environment. This is useful because it more closely simulates the user experience rather than just testing business logic functions and classes.
+It's a nice tool that allows you to easily instantiate React components and interact with them in a unit test environment. This is useful because it more closely simulates the user experience rather than just testing business logic, functions and classes.
 
-One tiny nit I've been running into over the years is the issue of creating props. It's a tiny issue, but after a while it gets a bit annoying to have too copy-paste the same props over and over, especially if they are not really related to what I'm testing.
+One tiny nit I've been running into over the years is the issue of creating props. It's a small issue, but after a while it does get a bit annoying to have to copy-paste the same props over and over, especially if they are not really related to what we are actually testing.
 
 As an example, let's consider the scenario where we are testing a `Button` component with the following props:
 
@@ -70,6 +70,7 @@ const getProps = (
   // Using `React.ComponentProps` here, but `Props` can also be imported directly
   overrides: Partial<React.ComponentProps<typeof Button>> = {},
 ): Props => ({
+  // Default props
   label: 'Click me',
   variant: 'primary',
   status: 'enabled',
@@ -78,7 +79,9 @@ const getProps = (
 });
 ```
 
-With this helper the same test suite as above can be rewritten as:
+Why have it as a function instead of just a static object? The reason is because we want handlers to be uniquely defined functions for each test run. For example, if we had a constant `props` object, then in this case the `onClick` handler would evaluate as the same instance of `jest.fn()` on each test run.
+
+With the helper the same test suite as above can be rewritten as:
 
 ```typescript
 it('handles click when enabled', () => {
@@ -103,3 +106,5 @@ it('does not handle click when disabled', () => {
 ```
 
 It's a small difference in this contrived example, but I've found it to be quite useful when dealing with tests in real life. The nice thing is that function itself is so simple that it can easily be reimplemented in each test suite.
+
+It's also entirely type-safe, so you'll immediately be warned if the prop interface doesn't match anymore. In this case we would simply go to the test suite and update the `getProps` function, instead of needing to modify all of the component calls individually.
