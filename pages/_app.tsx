@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { AppProps } from 'next/app';
 import Color from '../src/style/Color';
+import { Analytics } from '@vercel/analytics/react';
 import Header from '../src/components/header';
 
 enum GridArea {
@@ -42,15 +43,18 @@ const Content = styled.div`
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Root>
-      <Content>
-        <GlobalStyle />
-        <Header />
-        <main>
-          <Component {...pageProps} />
-        </main>
-      </Content>
-    </Root>
+    <>
+      <Root>
+        <Content>
+          <GlobalStyle />
+          <Header />
+          <main>
+            <Component {...pageProps} />
+          </main>
+        </Content>
+      </Root>
+      <Analytics />
+    </>
   );
 }
 
