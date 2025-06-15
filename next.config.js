@@ -6,8 +6,9 @@ module.exports = {
     });
     return config;
   },
-  experimental: {
-    appDir: true,
-  },
+  output: 'export',
   productionBrowserSourceMaps: true,
+  compiler: {
+    styledComponents: true,
+  },
 };
