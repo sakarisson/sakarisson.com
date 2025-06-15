@@ -20,15 +20,11 @@
     "@typescript-eslint/eslint-plugin": "5.6.0",
     "@typescript-eslint/parser": "5.6.0",
     "@vercel/analytics": "1.0.1",
-    "babel-plugin-styled-components": "1.10.7",
     "eslint": "8.4.1",
     "eslint-config-next": "13.1.1",
     "eslint-config-prettier": "8.3.0",
-    "eslint-plugin-import": "2.25.3",
-    "eslint-plugin-jsx-a11y": "6.5.1",
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-react": "7.27.1",
-    "eslint-plugin-react-hooks": "4.3.0",
     "knip": "5.61.0",
     "prettier": "2.5.1",
     "raw-loader": "4.0.2",
@@ -37,14 +33,14 @@
   },
   "license": "MIT",
   "scripts": {
+    "check-unused": "knip",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "test": "yarn tsc & yarn lint",
+    "test": "yarn tsc & yarn lint & yarn check-unused",
     "tsc": "tsc --noEmit --skipLibCheck",
     "lint": "eslint ./src ./pages --ext .ts,tsx",
     "start": "serve -s out",
     "build": "next build",
-    "dev": "next dev",
-    "check-unused": "knip"
+    "dev": "next dev"
   },
   "engines": {
     "node": "22.x"
