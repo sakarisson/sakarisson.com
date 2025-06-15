@@ -45,7 +45,7 @@
     "dev": "next dev"
   },
   "engines": {
-    "node": "18.x"
+    "node": "22.x"
   },
   "repository": {
     "type": "git",
